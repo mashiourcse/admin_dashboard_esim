@@ -14,55 +14,61 @@ export const NAV_DATA = [
           },
         ],
       },
-  //     {
-  //       title: "Calendar",
-  //       url: "/calendar",
-  //       icon: Icons.Calendar,
-  //       items: [],
-  //     },
-  //     {
-  //       title: "Profile",
-  //       url: "/profile",
-  //       icon: Icons.User,
-  //       items: [],
-  //     },
-  //     {
-  //       title: "Forms",
-  //       icon: Icons.Alphabet,
-  //       items: [
-  //         {
-  //           title: "Form Elements",
-  //           url: "/forms/form-elements",
-  //         },
-  //         {
-  //           title: "Form Layout",
-  //           url: "/forms/form-layout",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       title: "Tables",
-  //       url: "/tables",
-  //       icon: Icons.Table,
-  //       items: [
-  //         {
-  //           title: "Tables",
-  //           url: "/tables",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       title: "Pages",
-  //       icon: Icons.Alphabet,
-  //       items: [
-  //         {
-  //           title: "Settings",
-  //           url: "/pages/settings",
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
+      {
+        title: "Users",
+        url: "/users",
+        icon: Icons.User,
+        items: [],
+      },
+      // {
+      //   title: "Calendar",
+      //   url: "/calendar",
+      //   icon: Icons.Calendar,
+      //   items: [],
+      // },
+      // {
+      //   title: "Profile",
+      //   url: "/profile",
+      //   icon: Icons.User,
+      //   items: [],
+      // },
+      // {
+      //   title: "Forms",
+      //   icon: Icons.Alphabet,
+      //   items: [
+      //     {
+      //       title: "Form Elements",
+      //       url: "/forms/form-elements",
+      //     },
+      //     {
+      //       title: "Form Layout",
+      //       url: "/forms/form-layout",
+      //     },
+      //   ],
+      // },
+      // {
+      //   title: "Tables",
+      //   url: "/tables",
+      //   icon: Icons.Table,
+      //   items: [
+      //     {
+      //       title: "Tables",
+      //       url: "/tables",
+      //     },
+      //   ],
+      // },
+      // {
+      //   title: "Pages",
+      //   icon: Icons.Alphabet,
+      //   items: [
+      //     {
+      //       title: "Settings",
+      //       url: "/pages/settings",
+      //     },
+      //   ],
+      // },
+    ],
+  },
   // {
   //   label: "OTHERS",
   //   items: [
@@ -90,20 +96,20 @@ export const NAV_DATA = [
   //         },
   //       ],
   //     },
-      {
-        title: "Authentication",
-        icon: Icons.Authentication,
-        items: [
-          {
-            title: "Sign In",
-            url: "/auth/sign-in",
-          },
-          {
-            title: "Sign Up",
-            url: "/auth/sign-up",
-          },
-        ],
-      },
-    ],
-  },
+  //     {
+  //       title: "Authentication",
+  //       icon: Icons.Authentication,
+  //       items: [
+  //         {
+  //           title: "Sign In",
+  //           url: "/auth/sign-in",
+  //         },
+  //         {
+  //           title: "Sign Up",
+  //           url: "/auth/sign-up",
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
 ];

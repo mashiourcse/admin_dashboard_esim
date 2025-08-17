@@ -9,8 +9,8 @@ import { SocialAccounts } from "./_components/social-accounts";
 
 export default function Page() {
   const [data, setData] = useState({
-    name: "Danish Heilium",
-    profilePhoto: "/images/user/user-03.png",
+    name: "Mashiour Rahman",
+    profilePhoto: "/images/user/user-31.jpg",
     coverPhoto: "/images/cover/cover-01.png",
   });
 
@@ -112,7 +112,7 @@ export default function Page() {
             </h3>
             <p className="font-medium">Ui/Ux Designer</p>
             <div className="mx-auto mb-5.5 mt-5 grid max-w-[370px] grid-cols-3 rounded-[5px] border border-stroke py-[9px] shadow-1 dark:border-dark-3 dark:bg-dark-2 dark:shadow-card">
-              <div className="flex flex-col items-center justify-center gap-1 border-r border-stroke px-4 dark:border-dark-3 xsm:flex-row">
+              {/* <div className="flex flex-col items-center justify-center gap-1 border-r border-stroke px-4 dark:border-dark-3 xsm:flex-row">
                 <span className="font-medium text-dark dark:text-white">
                   259
                 </span>
@@ -129,7 +129,7 @@ export default function Page() {
                   2K
                 </span>
                 <span className="text-body-sm-sm">Following</span>
-              </div>
+              </div> */}
             </div>
 
             <div className="mx-auto max-w-[720px]">

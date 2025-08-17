@@ -18,8 +18,8 @@ export function PersonalInfoForm() {
             type="text"
             name="fullName"
             label="Full Name"
-            placeholder="David Jhon"
-            defaultValue="David Jhon"
+            placeholder="Mashiour Rahman"
+            defaultValue="Mashiour Rahman"
             icon={<UserIcon />}
             iconPosition="left"
             height="sm"
@@ -43,8 +43,8 @@ export function PersonalInfoForm() {
           type="email"
           name="email"
           label="Email Address"
-          placeholder="devidjond45@gmail.com"
-          defaultValue="devidjond45@gmail.com"
+          placeholder="mashiour@gmail.com"
+          defaultValue="mashiour@gmail.com"
           icon={<EmailIcon />}
           iconPosition="left"
           height="sm"
@@ -55,8 +55,8 @@ export function PersonalInfoForm() {
           type="text"
           name="username"
           label="Username"
-          placeholder="devidjhon24"
-          defaultValue="devidjhon24"
+          placeholder="mash"
+          defaultValue="mash"
           icon={<UserIcon />}
           iconPosition="left"
           height="sm"

@@ -20,9 +20,9 @@ export async function InvoiceTable() {
       <Table>
         <TableHeader>
           <TableRow className="border-none bg-[#F7F9FC] dark:bg-dark-2 [&>th]:py-4 [&>th]:text-base [&>th]:text-dark [&>th]:dark:text-white">
-            <TableHead className="min-w-[155px] xl:pl-7.5">Package</TableHead>
-            <TableHead>Invoice Date</TableHead>
-            <TableHead>Status</TableHead>
+            <TableHead className="min-w-[155px] xl:pl-7.5">User Name</TableHead>
+            <TableHead>User Email ID</TableHead>
+            <TableHead>Role</TableHead>
             <TableHead className="text-right xl:pr-7.5">Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -33,13 +33,14 @@ export async function InvoiceTable() {
               <TableCell className="min-w-[155px] xl:pl-7.5">
                 <h5 className="text-dark dark:text-white">{item.name}</h5>
                 <p className="mt-[3px] text-body-sm font-medium">
-                  ${item.price}
+                  {/* ${item.price} */}
                 </p>
               </TableCell>
 
               <TableCell>
                 <p className="text-dark dark:text-white">
-                  {dayjs(item.date).format("MMM DD, YYYY")}
+                  {/* {dayjs(item.date).format("MMM DD, YYYY")} */}
+                  {item.date}
                 </p>
               </TableCell>
 

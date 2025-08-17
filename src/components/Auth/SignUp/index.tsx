@@ -1,7 +1,7 @@
 import Link from "next/link";
 import GoogleSigninButton from "../GoogleSigninButton";
 import SigninWithPassword from "../SigninWithPassword";
-import SignoutWithData from "../SignupWithData";
+import SignUpWithData from "../SignupWithData";
 
 export default function Signup() {
   return (
@@ -17,7 +17,7 @@ export default function Signup() {
       </div>
 
       <div>
-        <SignoutWithData />
+        <SignUpWithData />
       </div>
 
       <div className="mt-6 text-center">

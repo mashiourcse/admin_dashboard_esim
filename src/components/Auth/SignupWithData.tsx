@@ -1,13 +1,14 @@
 "use client";
-import { EmailIcon, PasswordIcon, UserIcon } from "@/assets/icons";
+import { CallIcon, EmailIcon, PasswordIcon, UserIcon } from "@/assets/icons";
 import Link from "next/link";
 import React, { useState } from "react";
 import InputGroup from "../FormElements/InputGroup";
 import { Checkbox } from "../FormElements/checkbox";
 
-export default function SignoutWithData() {
+export default function SignUpWithData() {
   const [data, setData] = useState({
     email: process.env.NEXT_PUBLIC_DEMO_USER_MAIL || "",
+        username: process.env.NEXT_PUBLIC_DEMO_USER_MAIL || "",
     password: process.env.NEXT_PUBLIC_DEMO_USER_PASS || "",
     remember: false,
   });
@@ -34,6 +35,18 @@ export default function SignoutWithData() {
 
   return (
     <form onSubmit={handleSubmit}>
+      
+      <InputGroup
+        type="username"
+        label="Username"
+        className="mb-4 [&_input]:py-[15px]"
+        placeholder="Enter your username"
+        name="username"
+        handleChange={handleChange}
+        value={data.username}
+        icon={<EmailIcon />}
+      />
+      
       <InputGroup
         type="email"
         label="Email"
@@ -44,6 +57,18 @@ export default function SignoutWithData() {
         value={data.email}
         icon={<EmailIcon />}
       />
+
+       <InputGroup
+            className="mb-4 [&_input]:py-[15px]"
+            type="text"
+            name="phoneNumber"
+            label="Phone Number"
+            placeholder="+990 3343 7865"
+            defaultValue={"+990 3343 7865"}
+            icon={<CallIcon />}
+            iconPosition="left"
+            height="sm"
+          />
 
       <InputGroup
         type="fullname"
