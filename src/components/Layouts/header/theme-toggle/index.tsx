@@ -26,6 +26,7 @@ export function ThemeToggleSwitch() {
     return null;
   }
 
+  //console.log("Current theme:", theme);
   return (
     <button
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}

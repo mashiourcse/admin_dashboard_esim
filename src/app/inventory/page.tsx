@@ -4,13 +4,16 @@ import { TopChannels } from "@/components/Tables/top-channels";
 import { TopChannelsSkeleton } from "@/components/Tables/top-channels/skeleton";
 import { TopProducts } from "@/components/Tables/top-products";
 import { TopProductsSkeleton } from "@/components/Tables/top-products/skeleton";
-import { Users } from "@/components/Tables/users";
+
 
 import { Metadata } from "next";
 import { Suspense } from "react";
 import {ChannelData} from "@/utils/props";
 
 import { channeldata as channel_data } from "@/utils/data";
+import SkeletonUsersTable from "@/components/Tables/Administrators/skeleton";
+import UsersTable  from "@/components/Tables/Administrators";
+import InventoryTable from "@/components/Tables/inventory";
 
 export const metadata: Metadata = {
   title: "Tables",
@@ -21,14 +24,11 @@ export const metadata: Metadata = {
 const TablesPage = () => {
   return (
     <>
-      <Breadcrumb pageName="Users" />
+      <Breadcrumb pageName="Inventory" />
 
       <div className="space-y-10">
-        {/* <Suspense fallback={<TopProductsSkeleton />}>
-         
-        </Suspense> */}
-
-        <InvoiceTable />
+        <InventoryTable />
+        
         
        
       </div>

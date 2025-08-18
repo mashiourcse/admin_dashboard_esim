@@ -15,9 +15,23 @@ export const NAV_DATA = [
         ],
       },
       {
-        title: "Users",
-        url: "/users",
+        title: "Administrators",
+        url: "/admins",
         icon: Icons.User,
+        items: [],
+      },
+
+      {
+        title: "Inventory",
+        url: "/inventory",
+        icon: Icons.Alphabet,
+        items: [],
+      },
+
+      {
+        title: "Subscribers",
+        url: "/subscribers",
+        icon: Icons.Alphabet,
         items: [],
       },
       // {
