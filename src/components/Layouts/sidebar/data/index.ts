@@ -6,12 +6,13 @@ export const NAV_DATA = [
     items: [
       {
         title: "Dashboard",
+        url: "/",
         icon: Icons.HomeIcon,
         items: [
-          {
-            title: "eSIM",
-            url: "/",
-          },
+          // {
+          //   title: "eSIM",
+          //   url: "/",
+          // },
         ],
       },
       {
@@ -24,7 +25,7 @@ export const NAV_DATA = [
       {
         title: "Inventory",
         url: "/inventory",
-        icon: Icons.Alphabet,
+        icon: Icons.Table,
         items: [],
       },
 

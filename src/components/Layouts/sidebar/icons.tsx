@@ -20,6 +20,23 @@ export function ChevronUp(props: PropsType) {
   );
 }
 
+export function InventoryIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      {...props}
+    >
+      <path d="M3 3h18a1 1 0 011 1v16a1 1 0 01-1 1H3a1 1 0 01-1-1V4a1 1 0 011-1z" />
+      <path d="M8 6h8v2H8zm0 4h8v2H8zm0 4h8v2H8zm0 4h8v2H8z" />
+    </svg>
+  );
+}
+
+
 export function HomeIcon(props: PropsType) {
   return (
     <svg
