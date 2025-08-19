@@ -13,6 +13,7 @@ import {ChannelData} from "@/utils/props";
 import { channeldata as channel_data } from "@/utils/data";
 import SkeletonUsersTable from "@/components/Tables/Administrators/skeleton";
 import UsersTable  from "@/components/Tables/Administrators";
+import HomeClient from "@/components/Home/HomeClient";
 
 export const metadata: Metadata = {
   title: "Tables",
@@ -27,8 +28,8 @@ const TablesPage = () => {
 
       <div className="space-y-10">
         <UsersTable />
-        
-        
+
+       
        
       </div>
     </>

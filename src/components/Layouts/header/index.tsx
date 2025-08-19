@@ -8,6 +8,7 @@ import { MenuIcon } from "./icons";
 import { Notification } from "./notification";
 import { ThemeToggleSwitch } from "./theme-toggle";
 import { UserInfo } from "./user-info";
+import HomeClient from "@/components/Home/HomeClient";
 
 export function Header() {
   const { toggleSidebar, isMobile } = useSidebarContext();
@@ -58,6 +59,7 @@ export function Header() {
 
         <div className="shrink-0">
           <UserInfo />
+           <HomeClient />
         </div>
       </div>
     </header>

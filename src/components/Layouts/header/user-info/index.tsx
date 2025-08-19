@@ -11,7 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { LogOutIcon, SettingsIcon, UserIcon } from "./icons";
-
+import { useAuth } from "@/components/Auth/Context/AuthContext";
 export function UserInfo() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -20,7 +20,7 @@ export function UserInfo() {
     email: "mashiour@gmail.com",
     img: "/images/user/user-31.jpg",
   };
-
+  const { logout } = useAuth();
   return (
     <Dropdown isOpen={isOpen} setIsOpen={setIsOpen}>
       <DropdownTrigger className="rounded align-middle outline-none ring-primary ring-offset-2 focus-visible:ring-1 dark:ring-offset-gray-dark">
@@ -109,7 +109,7 @@ export function UserInfo() {
           <Link
           href={"/auth/sign-in"}
             className="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-[9px] hover:bg-gray-2 hover:text-dark dark:hover:bg-dark-3 dark:hover:text-white"
-            onClick={() => setIsOpen(false)}
+            onClick={() => logout}
           >
             <LogOutIcon />
 

@@ -4,17 +4,26 @@ export const NAV_DATA = [
   {
     label: "MAIN MENU",
     items: [
+      // {
+      //   title: "Dashboard1",
+        
+      //   icon: Icons.HomeIcon,
+      //   items: [
+      //     {
+      //       title: "eSIM",
+      //       url: "/",
+      //     },
+      //   ],
+      // },
+
+
       {
         title: "Dashboard",
         url: "/",
         icon: Icons.HomeIcon,
-        items: [
-          // {
-          //   title: "eSIM",
-          //   url: "/",
-          // },
-        ],
+        items: [],
       },
+
       {
         title: "Administrators",
         url: "/admins",
@@ -72,16 +81,20 @@ export const NAV_DATA = [
       //     },
       //   ],
       // },
-      // {
-      //   title: "Pages",
-      //   icon: Icons.Alphabet,
-      //   items: [
-      //     {
-      //       title: "Settings",
-      //       url: "/pages/settings",
-      //     },
-      //   ],
-      // },
+      {
+        title: "Network",
+        icon: Icons.FourCircle,
+        items: [
+          {
+            title: "Regions",
+            url: "/pages/regions",
+          },
+          {
+            title: "Operators",
+            url: "/pages/operators",
+          },
+        ],
+      },
     ],
   },
   // {

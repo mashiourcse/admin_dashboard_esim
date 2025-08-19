@@ -4,6 +4,8 @@ import { Table, Button, Space, ConfigProvider } from 'antd';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import { useTheme } from 'next-themes';
 import { theme } from 'antd'; // Import Ant Design theme module
+import UserModal from './UserModal';
+import AddCard from './AddCard';
 
 // Interface for user data
 interface UserData {
@@ -25,14 +27,15 @@ interface ActionColumn extends Omit<UserColumn, 'render'> {
 }
 
 const UsersTable: React.FC = () => {
-  const { theme: currentTheme } = useTheme(); // Renaming `theme` to `currentTheme` to avoid conflicts
+  const { theme: currentTheme } = useTheme(); 
   const [mounted, setMounted] = useState(false); // Track if component has mounted
-  const [antTheme, setAntTheme] = useState<any>(null); // Track Ant Design theme
-   const [currentPage, setCurrentPage] = useState(1); // Track current page
-    const [pageSize, setPageSize] = useState(5); // Track page size
+  const [antTheme, setAntTheme] = useState<any>(null); 
+   const [currentPage, setCurrentPage] = useState(1); 
+    const [pageSize, setPageSize] = useState(5); 
 
+      
   useEffect(() => {
-    setMounted(true); // Set to true once mounted on the client
+    setMounted(true); 
   }, []);
 
   // Effect to update the Ant Design theme when `currentTheme` changes
@@ -151,7 +154,10 @@ const UsersTable: React.FC = () => {
 
   return (
     <ConfigProvider theme={antTheme}> {/* Apply dynamic theme based on the currentTheme */}
-      <br />
+    
+    
+    <AddCard title=''/>
+      
       <Table columns={columns} dataSource={data} pagination={{
           current: currentPage,
           pageSize: pageSize,
@@ -163,9 +169,10 @@ const UsersTable: React.FC = () => {
           showSizeChanger: true, 
           pageSizeOptions: ['5', '10', '20'],
         }} />
-    <Button type="primary" style={{ marginBottom: 16 }}>
-        Add New Admin
-      </Button>
+    
+    
+        
+
     </ConfigProvider>
   );
 };
