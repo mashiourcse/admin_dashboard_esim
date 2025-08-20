@@ -1,5 +1,5 @@
-import { createContext, useState, useContext, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
+import { createContext, ReactNode, useContext, useState } from 'react';
 
 interface AuthContextType {
   user: string | null;
@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const logout = () => {
   setUser(null);
-  location.reload();
+  // location.reload();
   // set a small delay for routing after reload
   setTimeout(() => {
     router.push('/auth/sign-in');
