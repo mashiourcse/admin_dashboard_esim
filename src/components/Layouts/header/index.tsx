@@ -60,7 +60,7 @@ export function Header() {
         <div className="shrink-0">
           <UserInfo />
 
-           {/* <HomeClient /> */}
+           <HomeClient />
         
         </div>
       </div>
