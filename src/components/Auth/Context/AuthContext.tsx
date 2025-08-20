@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   // set a small delay for routing after reload
   setTimeout(() => {
     router.push('/auth/sign-in');
-  }, 1000);
+  }, 2000);
 };
 
 
