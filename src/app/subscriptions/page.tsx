@@ -3,11 +3,10 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 import SubscriptionTable from "@/components/Tables/subscriptions";
 
+
 export const metadata: Metadata = {
   title: "Tables",
 };
-
-
 
 const TablesPage = () => {
   return (
@@ -18,7 +17,6 @@ const TablesPage = () => {
         <SubscriptionTable />
         
         
-       
       </div>
     </>
   );
