@@ -59,7 +59,9 @@ export function Header() {
 
         <div className="shrink-0">
           <UserInfo />
+
            <HomeClient />
+        
         </div>
       </div>
     </header>

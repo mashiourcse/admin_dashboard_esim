@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { Table, Button, Space, ConfigProvider } from 'antd';
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import { EditOutlined, DeleteOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import { useTheme } from 'next-themes';
 import { theme } from 'antd';
 
@@ -16,6 +16,8 @@ interface InventoryData {
   lastModified: string;
   status: string;
 }
+
+
 
   // Columns definition for the inventory table
 interface InventoryColumn {
@@ -404,7 +406,7 @@ const columns: (InventoryColumn | ActionColumn)[] = [
         key: 'dateCreated',
     },
     {
-        title: 'Last Modified',
+        title: 'Date Assigned',
         dataIndex: 'lastModified',
         key: 'lastModified',
     },
@@ -419,6 +421,7 @@ const columns: (InventoryColumn | ActionColumn)[] = [
         key: 'actions',
         render: (_: any, record: InventoryData) => (
             <Space size="middle">
+                <Button type="link" icon={<InfoCircleOutlined />} />
                 <Button type="link" icon={<EditOutlined />} />
                 <Button type="link" icon={<DeleteOutlined />} />
             </Space>

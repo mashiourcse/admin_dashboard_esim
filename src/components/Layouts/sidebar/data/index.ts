@@ -44,6 +44,13 @@ export const NAV_DATA = [
         icon: Icons.Alphabet,
         items: [],
       },
+
+         {
+        title: "Dummy",
+        url: "/dummy",
+        icon: Icons.Alphabet,
+        items: [],
+      },
       // {
       //   title: "Calendar",
       //   url: "/calendar",
@@ -87,11 +94,11 @@ export const NAV_DATA = [
         items: [
           {
             title: "Regions",
-            url: "/pages/regions",
+            url: "/pages/settings",
           },
           {
             title: "Operators",
-            url: "/pages/operators",
+            url: "/pages/settings",
           },
         ],
       },
