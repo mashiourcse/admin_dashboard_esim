@@ -1,30 +1,28 @@
+import { Select } from "antd";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import { InvoiceTable } from "@/components/Tables/invoice-table";
-import { TopChannels } from "@/components/Tables/top-channels";
-import { TopChannelsSkeleton } from "@/components/Tables/top-channels/skeleton";
-import { TopProducts } from "@/components/Tables/top-products";
-import { TopProductsSkeleton } from "@/components/Tables/top-products/skeleton";
-
-
+import  PlansTable  from "@/components/Tables/plans";
 import { Metadata } from "next";
+import Wrapper from "@/components/Tables/plans/wrapper";
+
+// Destructure Select.Option correctly
 
 
 export const metadata: Metadata = {
   title: "Tables",
 };
 
-
-
 const TablesPage = () => {
+ 
+
   return (
     <>
-      <Breadcrumb pageName="Plans" />
+      <Breadcrumb pageName="Plans & Pricing" />
 
       <div className="space-y-10">
-       
-        Plans component will be added here
-        
-       
+     
+
+        {/* Table Component */}
+       <Wrapper />
       </div>
     </>
   );

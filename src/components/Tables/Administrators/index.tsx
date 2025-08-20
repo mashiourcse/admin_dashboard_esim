@@ -32,6 +32,8 @@ const UsersTable: React.FC = () => {
   const [antTheme, setAntTheme] = useState<any>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(5);
+
+  
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalData, setModalData] = useState<UserData | null>(null);
 
