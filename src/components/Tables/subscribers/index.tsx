@@ -4,6 +4,7 @@ import { Table, Button, Space, ConfigProvider } from 'antd';
 import { EditOutlined, DeleteOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import { useTheme } from 'next-themes';
 import { theme } from 'antd';
+import DateRangeDropdown from './DateRangeDropdown';
 
 // Interface for subscriber data
 interface SubscriberData {
@@ -293,8 +294,8 @@ const SubscribersTable: React.FC = () => {
       render: (_: any, record: SubscriberData) => (
         <Space size="middle">
           <Button type="link" icon={<InfoCircleOutlined />} />
-          <Button type="link" icon={<EditOutlined />} />
-          <Button type="link" icon={<DeleteOutlined />} />
+          {/* <Button type="link" icon={<EditOutlined />} />
+          <Button type="link" icon={<DeleteOutlined />} /> */}
         </Space>
       ),
     },
@@ -306,7 +307,9 @@ const SubscribersTable: React.FC = () => {
 
   return (
     <ConfigProvider theme={antTheme}>
-      <br />
+      
+      <DateRangeDropdown/>
+      
       <Table
         columns={columns}
         dataSource={data}
@@ -322,9 +325,9 @@ const SubscribersTable: React.FC = () => {
           pageSizeOptions: ['5', '10', '20'],
         }}
       />
-      <Button type="primary" style={{ marginBottom: 16, alignItems: 'center' }}>
+      {/* <Button type="primary" style={{ marginBottom: 16, alignItems: 'center' }}>
         Add New Subscriber
-      </Button>
+      </Button> */}
     </ConfigProvider>
   );
 };
