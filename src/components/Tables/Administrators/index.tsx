@@ -217,7 +217,7 @@ const UsersTable: React.FC = () => {
             style={{ width: '100%', borderRadius: '8px' }}
             bodyStyle={{ padding: '24px' }}
             actions={[
-              <Row justify="space-between" style={{ padding: '0 16px' }}>
+              <Row justify="space-between" style={{ padding: '0 16px' }} key={"action-row"}>
                 {isEditing ? (
                   <>
                     <Button key="cancel" onClick={handleCancelClick} style={{ borderRadius: '8px' }}>Cancel</Button>
