@@ -45,6 +45,13 @@ export const NAV_DATA = [
         items: [],
       },
 
+      {
+        title: "Subscriptions",
+        url: "/subscriptions",
+        icon: Icons.ArrowLeftIcon ,
+        items: [],
+      },
+
          {
         title: "Dummy",
         url: "/dummy",

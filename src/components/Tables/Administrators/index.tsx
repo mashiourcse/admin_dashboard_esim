@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { Table, Button, Space, ConfigProvider } from 'antd';
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import { EditOutlined, DeleteOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import { useTheme } from 'next-themes';
 import { theme } from 'antd'; // Import Ant Design theme module
 import UserModal from './UserModal';
@@ -141,8 +141,9 @@ const UsersTable: React.FC = () => {
       key: 'actions',
       render: (_: any, record: UserData) => (
         <Space size="middle">
-          <Button type="link" icon={<EditOutlined />} />
-          <Button type="link" icon={<DeleteOutlined />} />
+          <Button type="link" icon={<InfoCircleOutlined />} />
+          <Button type="link" icon={<EditOutlined  className='text-black dark:text-white'/>} />
+          <Button type="link" icon={<DeleteOutlined className="text-red-500" />} />
         </Space>
       ),
     },
