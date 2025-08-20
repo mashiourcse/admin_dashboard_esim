@@ -33,7 +33,7 @@ const UsersTable: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(5);
 
-  
+
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalData, setModalData] = useState<UserData | null>(null);
 
@@ -220,15 +220,15 @@ const UsersTable: React.FC = () => {
               <Row justify="space-between" style={{ padding: '0 16px' }}>
                 {isEditing ? (
                   <>
-                    <Button onClick={handleCancelClick} style={{ borderRadius: '8px' }}>Cancel</Button>
-                    <Button type="primary" onClick={handleSaveClick} style={{ borderRadius: '8px' }}>
+                    <Button key="cancel" onClick={handleCancelClick} style={{ borderRadius: '8px' }}>Cancel</Button>
+                    <Button key="save" type="primary" onClick={handleSaveClick} style={{ borderRadius: '8px' }}>
                       Save
                     </Button>
                   </>
                 ) : (
                   <>
-                    <Button onClick={handleModalCancel} style={{ borderRadius: '8px' }}>Cancel</Button>
-                    <Button type="primary" onClick={handleEditClick} style={{ borderRadius: '8px' }}>
+                    <Button key="cancel" onClick={handleModalCancel} style={{ borderRadius: '8px' }}>Cancel</Button>
+                    <Button key="edit" type="primary" onClick={handleEditClick} style={{ borderRadius: '8px' }}>
                       Edit User
                     </Button>
                   </>
