@@ -139,6 +139,6 @@ export function getCountriesNameByCodes(codes: string[]) {
   return codes
     .map((code) => getCountryByCode(code))
     .filter(Boolean)
-    .map((c) => c.name)
+    .map((c) => c!.name)
     .join(", ");
 }
