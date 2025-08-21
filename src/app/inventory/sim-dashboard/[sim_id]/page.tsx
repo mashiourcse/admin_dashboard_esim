@@ -1,21 +1,25 @@
-import { NextPage } from "next";
+
+"use client";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import SimDashboard from "@/components/SimCard";
+import { useParams } from "next/navigation";
 
-// You can get `params` directly from the context in Next.js 13
+import React from "react";
+
 interface SimDashboardPageProps {
-  params: { sim_id: string };
+    params: { sim_id: string };
 }
 
-const SimDashboardPage: NextPage<SimDashboardPageProps> = ({ params }) => {
-  const { sim_id } = params;
-
-  return (
-    <div>
-      <Breadcrumb pageName={`SIM Dashboard`} />
-      <SimDashboard />
-    </div>
-  );
+const SimDashboardPage: React.FC<SimDashboardPageProps> = () => {
+ 
+    const { sim_id } = useParams<SimDashboardPageProps["params"]>();
+    return (
+        <div>
+          <Breadcrumb pageName={`SIM Dashboard`} />
+          <p>{sim_id}</p>
+            <SimDashboard />
+        </div>
+    );
 };
 
 export default SimDashboardPage;
