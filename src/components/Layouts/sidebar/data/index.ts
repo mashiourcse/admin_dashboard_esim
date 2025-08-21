@@ -31,6 +31,14 @@ export const NAV_DATA = [
         items: [],
       },
 
+            {
+        title: "Plans",
+        url: "/plans",
+        icon: Icons.PieChart,
+        items: [],
+      },
+
+
       {
         title: "Inventory",
         url: "/inventory",
@@ -52,12 +60,12 @@ export const NAV_DATA = [
         items: [],
       },
 
-         {
-        title: "Dummy",
-        url: "/dummy",
-        icon: Icons.Alphabet,
-        items: [],
-      },
+      //    {
+      //   title: "Dummy",
+      //   url: "/dummy",
+      //   icon: Icons.Alphabet,
+      //   items: [],
+      // },
       // {
       //   title: "Calendar",
       //   url: "/calendar",
