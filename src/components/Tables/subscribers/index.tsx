@@ -9,7 +9,7 @@ import DateRangeDropdown from './DateRangeDropdown';
 // Interface for subscriber data
 interface SubscriberData {
   key: string;
-  displayName: string;
+  subscriberName: string;
   emailId: string;
   noOfPlans: number;
   phone: string;
@@ -68,7 +68,7 @@ const SubscribersTable: React.FC = () => {
   const data: SubscriberData[] = [
   {
     key: '1',
-    displayName: 'John Doe',
+    subscriberName: 'John Doe',
     emailId: 'johndoe@example.com',
     phone: '123-456-7890',
     noOfPlans: 3,
@@ -77,7 +77,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '2',
-    displayName: 'Jane Smith',
+    subscriberName: 'Jane Smith',
     emailId: 'janesmith@example.com',
     phone: '234-567-8901',
     noOfPlans: 2,
@@ -86,7 +86,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '3',
-    displayName: 'Alice Johnson',
+    subscriberName: 'Alice Johnson',
     emailId: 'alicejohnson@example.com',
     phone: '345-678-9012',
     noOfPlans: 5,
@@ -95,7 +95,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '4',
-    displayName: 'Bob Brown',
+    subscriberName: 'Bob Brown',
     emailId: 'bobbrown@example.com',
     phone: '456-789-0123',
     noOfPlans: 4,
@@ -104,7 +104,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '5',
-    displayName: 'Charlie Davis',
+    subscriberName: 'Charlie Davis',
     emailId: 'charliedavis@example.com',
     phone: '567-890-1234',
     noOfPlans: 3,
@@ -113,7 +113,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '6',
-    displayName: 'Diana Moore',
+    subscriberName: 'Diana Moore',
     emailId: 'dianamoore@example.com',
     phone: '678-901-2345',
     noOfPlans: 1,
@@ -122,7 +122,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '7',
-    displayName: 'Eve Wilson',
+    subscriberName: 'Eve Wilson',
     emailId: 'evewilson@example.com',
     phone: '789-012-3456',
     noOfPlans: 2,
@@ -131,7 +131,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '8',
-    displayName: 'Frank Harris',
+    subscriberName: 'Frank Harris',
     emailId: 'frankharris@example.com',
     phone: '890-123-4567',
     noOfPlans: 3,
@@ -140,7 +140,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '9',
-    displayName: 'Grace Lewis',
+    subscriberName: 'Grace Lewis',
     emailId: 'gracelewis@example.com',
     phone: '901-234-5678',
     noOfPlans: 5,
@@ -149,7 +149,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '10',
-    displayName: 'Henry Walker',
+    subscriberName: 'Henry Walker',
     emailId: 'henrywalker@example.com',
     phone: '012-345-6789',
     noOfPlans: 4,
@@ -158,7 +158,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '11',
-    displayName: 'Isla Martin',
+    subscriberName: 'Isla Martin',
     emailId: 'islamartin@example.com',
     phone: '123-456-7890',
     noOfPlans: 3,
@@ -167,7 +167,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '12',
-    displayName: 'Jack White',
+    subscriberName: 'Jack White',
     emailId: 'jackwhite@example.com',
     phone: '234-567-8901',
     noOfPlans: 2,
@@ -176,7 +176,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '13',
-    displayName: 'Kelly Scott',
+    subscriberName: 'Kelly Scott',
     emailId: 'kellyscott@example.com',
     phone: '345-678-9012',
     noOfPlans: 1,
@@ -185,7 +185,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '14',
-    displayName: 'Liam Turner',
+    subscriberName: 'Liam Turner',
     emailId: 'liamturner@example.com',
     phone: '456-789-0123',
     noOfPlans: 4,
@@ -194,7 +194,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '15',
-    displayName: 'Mia Adams',
+    subscriberName: 'Mia Adams',
     emailId: 'miaadams@example.com',
     phone: '567-890-1234',
     noOfPlans: 3,
@@ -203,7 +203,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '16',
-    displayName: 'Noah Clark',
+    subscriberName: 'Noah Clark',
     emailId: 'noahclark@example.com',
     phone: '678-901-2345',
     noOfPlans: 2,
@@ -212,7 +212,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '17',
-    displayName: 'Olivia Young',
+    subscriberName: 'Olivia Young',
     emailId: 'oliviayoung@example.com',
     phone: '789-012-3456',
     noOfPlans: 3,
@@ -221,7 +221,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '18',
-    displayName: 'Paul Allen',
+    subscriberName: 'Paul Allen',
     emailId: 'paulallen@example.com',
     phone: '890-123-4567',
     noOfPlans: 4,
@@ -230,7 +230,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '19',
-    displayName: 'Quincy King',
+    subscriberName: 'Quincy King',
     emailId: 'quincyking@example.com',
     phone: '901-234-5678',
     noOfPlans: 2,
@@ -239,7 +239,7 @@ const SubscribersTable: React.FC = () => {
   },
   {
     key: '20',
-    displayName: 'Riley Carter',
+    subscriberName: 'Riley Carter',
     emailId: 'rileycarter@example.com',
     phone: '012-345-6789',
     noOfPlans: 3,
@@ -259,15 +259,11 @@ const SubscribersTable: React.FC = () => {
       },
     },
     {
-      title: 'Display Name',
-      dataIndex: 'displayName',
-      key: 'displayName',
+      title: 'Subscriber Name',
+      dataIndex: 'subscriberName',
+      key: 'subscriberName',
     },
-    {
-      title: 'Email ID',
-      dataIndex: 'emailId',
-      key: 'emailId',
-    },
+    
     {
       title: 'Phone',
       dataIndex: 'phone',

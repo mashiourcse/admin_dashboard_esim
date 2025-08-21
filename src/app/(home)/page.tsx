@@ -61,7 +61,7 @@ export default async function Home({ searchParams }: PropsType) {
         <Suspense fallback={null}>
           <ChatsCard />
         </Suspense> */}
-        <HomeClient/>
+       
       </div>
     </>
   );
