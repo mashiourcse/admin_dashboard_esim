@@ -20,6 +20,7 @@ import React, { useEffect, useState } from "react";
 interface PlanData {
   key: string;
   name: string;
+  wholesalePrice?: string;
   retailPrice: string;
   planType: string;
   destination: string;
@@ -142,9 +143,15 @@ const PlansTable: React.FC<{ data: PlanData[] }> = ({ data }) => {
       render: (text: string) => <a>{text}</a>,
     },
     {
-      title: "Price",
+      title: "RSP",
       dataIndex: "retailPrice",
       key: "retailPrice",
+    },
+    {
+      title: "WSP",
+      dataIndex: "wholesalePrice",
+      key: "wholesalePrice",
+      render: (text: string) => <a>{(text)? text : "N/A"}</a>,
     },
     {
       title: "Plan Type",

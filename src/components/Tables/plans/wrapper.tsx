@@ -4,6 +4,7 @@ import { getCountriesNameByCodes } from "@/utils/countries";
 import { DownOutlined } from "@ant-design/icons";
 import {
   Button,
+  Card,
   ConfigProvider,
   Dropdown,
   Menu,
@@ -253,7 +254,8 @@ const Wrapper = () => {
   return (
     <div>
       <ConfigProvider theme={antTheme}>
-        <Space
+        <Card>
+          <Space
           direction="horizontal"
           size="large"
           style={{ marginBottom: "20px" }}
@@ -280,6 +282,8 @@ const Wrapper = () => {
             </Button>
           </Dropdown> */}
         </Space>
+        </Card>
+        <br />
       </ConfigProvider>
 
       {/* Plans Table */}
