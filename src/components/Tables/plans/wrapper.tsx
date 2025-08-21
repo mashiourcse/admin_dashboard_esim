@@ -273,17 +273,15 @@ const Wrapper = () => {
             </Button>
           </Dropdown>
 
-        {/* Dropdown for Select Country */}
-        <Dropdown overlay={countryMenu} trigger={["click"]}>
-          <Button>
-            {selectedCountry} <DownOutlined />
-          </Button>
-        </Dropdown>
-      </Space>
-      </Card>
+          {/* Dropdown for Select Country */}
+          {/* <Dropdown overlay={countryMenu} trigger={["click"]}>
+            <Button>
+              {selectedCountry} <DownOutlined />
+            </Button>
+          </Dropdown> */}
+        </Space>
+      </ConfigProvider>
 
-        </ConfigProvider>
-      <br />
       {/* Plans Table */}
       <PlansTable data={data} />
     </div>
