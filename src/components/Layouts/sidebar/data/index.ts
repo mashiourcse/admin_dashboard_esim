@@ -109,11 +109,11 @@ export const NAV_DATA = [
         items: [
           {
             title: "Regions",
-            url: "/pages/settings",
+            url: "/network/regions",
           },
           {
             title: "Operators",
-            url: "/pages/settings",
+            url: "/network/operators",
           },
         ],
       },

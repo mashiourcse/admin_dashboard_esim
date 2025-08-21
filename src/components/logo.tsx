@@ -2,11 +2,14 @@ import darkLogo from "@/assets/logos/dark.svg";
 import logo from "@/assets/logos/main.svg";
 import Image from "next/image";
 import oneworld from "@/assets/logos/oneworld.webp";
+import oneworlddark from "@/assets/oneworld/white.png";
+import oneworldlight from "@/assets/oneworld/color.png";
+
 export function Logo() {
   return (
-    <div className="relative h-16 max-w-[10.847rem]">
+    <div className="relative h-[6.00em] max-w-[12.5em]">
       <Image
-        src={oneworld}
+        src={oneworldlight}
         fill
         className="dark:hidden"
         alt="company logo"
@@ -15,7 +18,7 @@ export function Logo() {
       />
 
       <Image
-        src={oneworld}
+        src={oneworlddark}
         fill
         className="hidden dark:block"
         alt="logo"

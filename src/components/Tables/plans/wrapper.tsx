@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Dropdown, Menu, Button, Space, Segmented, ConfigProvider } from "antd";
+import { Dropdown, Menu, Button, Space, Segmented, ConfigProvider, Card } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import PlansTable from "."; // Import your PlansTable component
 import { useTheme } from "next-themes";
@@ -94,7 +94,9 @@ const { theme: currentTheme } = useTheme();
   return (
     <div>
       <ConfigProvider theme={antTheme}>
-<Space direction="horizontal" size="large" style={{ marginBottom: "20px" }} className="flex justify-between">
+
+      <Card>
+        <Space direction="horizontal" size="large" style={{ marginBottom: "0px" }} className="flex justify-between">
         {/* Dropdown for Countries, Regions, Global */}
         <Segmented
         options={['Global', 'Countries', 'Regions']}
@@ -117,8 +119,10 @@ const { theme: currentTheme } = useTheme();
           </Button>
         </Dropdown>
       </Space>
-        </ConfigProvider>
+      </Card>
 
+        </ConfigProvider>
+      <br />
       {/* Plans Table */}
       <PlansTable />
     </div>
