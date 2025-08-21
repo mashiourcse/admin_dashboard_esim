@@ -4,6 +4,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import oneworlddark from "@/assets/oneworld/white.png";
+import oneworldlight from "@/assets/oneworld/color.png";
+
 export const metadata: Metadata = {
   title: "Sign in",
 };
@@ -26,14 +29,14 @@ export default function SignIn() {
               <Link className="mb-10 inline-block" href="/">
                 <Image
                   className="hidden dark:block"
-                  src={"/images/logo/oneworld.webp"}
+                  src={oneworlddark}
                   alt="Logo"
                   width={176}
                   height={32}
                 />
                 <Image
                   className="dark:hidden"
-                  src={"/images/logo/oneworld.webp"}
+                  src={oneworldlight}
                   alt="Logo"
                   width={176}
                   height={32}

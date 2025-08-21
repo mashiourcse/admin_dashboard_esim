@@ -8,14 +8,18 @@ import {
 import { Button, ConfigProvider, Space, Table, theme } from "antd";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
+import HeaderCard from "./HeaderCard";
+import Link from "next/link";
 
 // Interface for inventory data
 interface InventoryData {
   key: string;
   iccid: string;
+  id?: string;
   activationCode: string;
   imsi: string;
-  subscriberEmail: string;
+  subscriber: string;
+  dashboard_url?: string;
   createdAt: string;
   lastModified: string;
   sim_status: string;
@@ -149,35 +153,55 @@ const InventoryTable: React.FC = () => {
       key: "iccid",
     },
     {
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
+      render: (id: string) => <span>{(id)? id : "N/A"}</span>,
+    },
+    {
       title: "Activation Code",
       dataIndex: "activationCode",
       key: "activationCode",
+      render: (activationCode: string) => <span>{(activationCode)? activationCode : "N/A"}</span>,
     },
     {
       title: "IMSI",
       dataIndex: "imsi",
       key: "imsi",
     },
+   // dashboard_url
     {
-      title: "Subscriber Email",
-      dataIndex: "subscriberEmail",
-      key: "subscriberEmail",
+      title: "Subscriber",
+      dataIndex: "subscriber",
+      key: "subscriber",
+      render: (subscriber: string) => <span>{subscriber ? subscriber : "N/A"}</span>,
     },
     {
       title: "Date Created",
       dataIndex: "createdAt",
       key: "createdAt",
+      render: (createdAt: string) => <div style={{width: "125px"}} className="text-xs">{createdAt ? createdAt : "Not Assigned"}</div>,
     },
     {
       title: "Date Assigned",
       dataIndex: "lastModified",
       key: "lastModified",
+       render: (lastModified: string) => <span>{lastModified ? lastModified : "Not Assigned"}</span>,
     },
+     {
+      title: "Dashboard URL",
+      dataIndex: "dashboard_url",
+      key: "dashboard_url",
+       render: (dashboard_url: string) => <Link href={`/inventory/sim-dashboard/${"1"}`}>{dashboard_url ? "Click here" : "N/A"}</Link>,
+      // upore 1 jekane ase oikane dashboard_url bosaben, eita basically sim_id hobe
+      // jeta sim dashboard page e pathano hobe
+      },
+
     {
       title: "Status",
       dataIndex: "sim_status",
       key: "sim_status",
-      render: (status: string) => <span>{status}</span>,
+      render: (status: string) => <div style={{width: "70px"}}>{status}</div>,
     },
     {
       title: "Actions",
@@ -185,8 +209,8 @@ const InventoryTable: React.FC = () => {
       render: (_: any, record: InventoryData) => (
         <Space size="middle">
           <Button type="link" icon={<InfoCircleOutlined />} />
-          <Button type="link" icon={<EditOutlined />} />
-          <Button type="link" icon={<DeleteOutlined />} />
+          <Button type="link" icon={<EditOutlined className="text-black dark:text-white" />} />
+          <Button type="link" icon={<DeleteOutlined className="text-red" />} />
         </Space>
       ),
     },
@@ -198,6 +222,7 @@ const InventoryTable: React.FC = () => {
 
   return (
     <ConfigProvider theme={antTheme}>
+      <HeaderCard title="" />
       <br />
       <Table
         columns={columns}
@@ -214,9 +239,9 @@ const InventoryTable: React.FC = () => {
           pageSizeOptions: ["5", "10", "20"],
         }}
       />
-      <Button type="primary" style={{ marginBottom: 16, alignItems: "center" }}>
+      {/* <Button type="primary" style={{ marginBottom: 16, alignItems: "center" }}>
         Add New Inventory
-      </Button>
+      </Button> */}
     </ConfigProvider>
   );
 };
