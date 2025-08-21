@@ -16,7 +16,7 @@ interface InventoryData {
   activationCode: string;
   imsi: string;
   subscriberEmail: string;
-  dateCreated: string;
+  createdAt: string;
   lastModified: string;
   sim_status: string;
 }
@@ -82,8 +82,34 @@ const InventoryTable: React.FC = () => {
       try {
         const response = await axiosInstance.get("/inventories?results=10");
         // console.log(response.data.data);
-        
-        setData(response.data.data); // Set the fetched data to state
+
+        const transformedData = response.data.data.map((item: any) => {
+          const formatDate = (dateStr: string) =>
+            new Date(dateStr).toLocaleString("en-GB", {
+              day: "2-digit",
+              month: "short",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: true,
+            });
+
+          return {
+            _id: item._id,
+            iccid: item.iccid,
+            sim_status: item.sim_status,
+            created_date: item.created_date,
+            modified_date: item.modified_date,
+            imsi:
+              item.imsis?.map((imsiObj: any) => imsiObj.imsi).join(", ") ||
+              null,
+            mapped_imsi: item.mapped_imsi,
+            createdAt: formatDate(item.createdAt),
+            updatedAt: formatDate(item.updatedAt),
+          };
+        });
+
+        setData(transformedData); // Set the fetched data to state
       } catch (error) {
         console.error("Error fetching inventory data", error);
       } finally {
@@ -139,8 +165,8 @@ const InventoryTable: React.FC = () => {
     },
     {
       title: "Date Created",
-      dataIndex: "dateCreated",
-      key: "dateCreated",
+      dataIndex: "createdAt",
+      key: "createdAt",
     },
     {
       title: "Date Assigned",
@@ -150,7 +176,7 @@ const InventoryTable: React.FC = () => {
     {
       title: "Status",
       dataIndex: "sim_status",
-      key: "status",
+      key: "sim_status",
       render: (status: string) => <span>{status}</span>,
     },
     {
