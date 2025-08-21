@@ -69,7 +69,7 @@ const { theme: currentTheme } = useTheme();
       <Row gutter={[16, 16]}>
         <Col span={8}>
           <Card
-            className="rounded-full py-4 px-6 border border-gray-300 inline-block w-full flex justify-between"
+            className="rounded-full py-4 px-6 border border-gray-300 w-full flex justify-between"
             key={"iccid"}
           >
             <Text className='mr-5 font-extrabold'>ICCID: </Text>
@@ -79,7 +79,7 @@ const { theme: currentTheme } = useTheme();
 
         <Col span={8}>
           <Card
-            className="rounded-full py-4 px-6 border border-gray-300 inline-block w-full"
+            className="rounded-full py-4 px-6 border border-gray-300 w-full flex justify-between"
             key={"activationCode"}
           >
             <strong className='mr-5'>Activation Code: </strong>
@@ -89,7 +89,7 @@ const { theme: currentTheme } = useTheme();
 
         <Col span={8}>
           <Card
-            className="rounded-full py-4 px-6 border border-gray-300 inline-block w-full"
+            className="rounded-full py-4 px-6 border border-gray-300 w-full flex justify-between"
             key={"imsi"}
           >
             <strong className='mr-5'>IMSI: </strong>
@@ -99,7 +99,7 @@ const { theme: currentTheme } = useTheme();
 
         <Col span={8}>
           <Card
-            className="rounded-full py-4 px-6 border border-gray-300 inline-block w-full"
+            className="rounded-full py-4 px-6 border border-gray-300 w-full flex justify-between"
             key={"subscriberName"}
           >
             <strong className='mr-5'>Subscriber: </strong>
@@ -109,7 +109,7 @@ const { theme: currentTheme } = useTheme();
 
         <Col span={8}>
           <Card
-            className="rounded-full py-4 px-6 border border-gray-300 inline-block w-full"
+            className="rounded-full py-4 px-6 border border-gray-300 w-full flex justify-between"
             key={"dateAssigned"}
           >
             <strong className='mr-5'>Date Assigned: </strong>
@@ -119,7 +119,7 @@ const { theme: currentTheme } = useTheme();
 
         <Col span={8}>
           <Card
-            className={`rounded-full py-4 px-6 border border-gray-300 inline-block w-full`}
+            className={`rounded-full py-4 px-6 border border-gray-300 w-full flex justify-between`}
             key={"status"}
           >
             <strong className='mr-5'>Status: </strong>
