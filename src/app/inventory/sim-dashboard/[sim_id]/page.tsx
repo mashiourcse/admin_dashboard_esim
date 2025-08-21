@@ -11,7 +11,7 @@ const SimDashboardPage: React.FC<SimDashboardPageProps> = ({ params }) => {
     const { sim_id } = params;
     return (
         <div>
-          <Breadcrumb pageName={`SIM Dashboard / ${sim_id}`} />
+          <Breadcrumb pageName={`SIM Dashboard`} />
             <SimDashboard />
         </div>
     );
