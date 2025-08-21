@@ -11,7 +11,6 @@ interface UserData {
   key: string;
   name: string;
   email: string;
-  signupDate?: string; // Optional signup date
   role: string;
   phoneNumber?: string; // Add optional phone number
 }
@@ -71,40 +70,35 @@ const UsersTable: React.FC = () => {
   }, [currentTheme, mounted]);
 
   const data: UserData[] = [
-  {
-    key: '1',
-    name: 'Mashior Rahman',
-    email: 'mashior.csei.iuc@gmail.com',
-    role: 'admin',
-    phoneNumber: '0183423432432',
-    signupDate: new Date('2023-01-15').toLocaleDateString(), // Example date format
-  },
-  {
-    key: '2',
-    name: 'Nidal Chowdhury',
-    email: 'nidal.chy1993@gmail.com',
-    role: 'admin',
-    phoneNumber: '0183423432432',
-    signupDate: new Date('2022-03-22').toLocaleDateString(),
-  },
-  {
-    key: '3',
-    name: 'Sibel Gazozcu',
-    email: 'sibel.gazozcu@telna.com',
-    role: 'admin',
-    phoneNumber: '0183423432432',
-    signupDate: new Date('2021-08-19').toLocaleDateString(),
-  },
-  {
-    key: '4',
-    name: 'Ishaan Dutta',
-    email: 'ishaan@telna.com',
-    role: 'admin',
-    phoneNumber: '0183423432432',
-    signupDate: new Date('2023-06-10').toLocaleDateString(),
-  },
-];
-
+    {
+      key: '1',
+      name: 'Mashior Rahman',
+      email: 'mashior.csei.iuc@gmail.com',
+      role: 'admin',
+      phoneNumber: '0183423432432',
+    },
+    {
+      key: '2',
+      name: 'Nidal Chowdhury',
+      email: 'nidal.chy1993@gmail.com',
+      role: 'admin',
+      phoneNumber: '0183423432432',
+    },
+    {
+      key: '3',
+      name: 'Sibel Gazozcu',
+      email: 'sibel.gazozcu@telna.com',
+      role: 'admin',
+      phoneNumber: '0183423432432',
+    },
+    {
+      key: '4',
+      name: 'Ishaan Dutta',
+      email: 'ishaan@telna.com',
+      role: 'admin',
+      phoneNumber: '0183423432432',
+    },
+  ];
 
   const handleCopyEmail = (data: { email: string; }) => {
     navigator.clipboard.writeText(data.email);
@@ -174,13 +168,6 @@ const UsersTable: React.FC = () => {
       dataIndex: 'role',
       key: 'role',
     },
-
-    {
-      title: 'Signup Date',
-      dataIndex: 'signupDate',
-      key: 'signupDate',
-    },
-
     {
       title: 'Actions',
       key: 'actions',
