@@ -12,6 +12,7 @@ interface UserData {
   name: string;
   email: string;
   role: string;
+  signupDate?: string; // Optional signup date
   phoneNumber?: string; // Add optional phone number
 }
 
@@ -167,6 +168,12 @@ const UsersTable: React.FC = () => {
       title: 'Role',
       dataIndex: 'role',
       key: 'role',
+    },
+    {
+      title: 'Signup Date',
+      dataIndex: 'signupDate',
+      key: 'signupDate',
+      render: (text: string) => <span>{text || 'N/A'}</span>,
     },
     {
       title: 'Actions',

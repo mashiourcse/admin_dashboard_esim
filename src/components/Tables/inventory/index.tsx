@@ -192,7 +192,7 @@ const InventoryTable: React.FC = () => {
       title: "Dashboard URL",
       dataIndex: "dashboard_url",
       key: "dashboard_url",
-       render: (dashboard_url: string) => <Link href={`/inventory/sim-dashboard/${"1"}`}>{dashboard_url ? "Click here" : "N/A"}</Link>,
+       render: (dashboard_url: string) => <Link href={`/inventory/sim-dashboard/${"1"}`}>{dashboard_url ? "Click here" : "Click here"}</Link>,
       // upore 1 jekane ase oikane dashboard_url bosaben, eita basically sim_id hobe
       // jeta sim dashboard page e pathano hobe
       },
