@@ -1,5 +1,5 @@
+import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
-import { Modal, Button } from 'antd';
 
 interface UserData {
   key: string;
