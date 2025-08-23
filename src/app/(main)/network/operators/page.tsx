@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="mx-auto w-full max-w-[1080px]">
-      <Breadcrumb pageName="Settings" />
+      <Breadcrumb pageName="Operators" />
 
       <div className="grid grid-cols-5 gap-8">
         <div className="col-span-5 xl:col-span-3">

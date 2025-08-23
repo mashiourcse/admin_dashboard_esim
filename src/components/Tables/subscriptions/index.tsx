@@ -9,11 +9,11 @@ import DateRangeDropdown from './DateRangeDropdown';
 // Interface for Subscription data
 interface SubscriptionData {
   key: string;
-  emailId: string;
+  subscriber: string;
   planName: string;
   ICCID: string;
-  WSP: number;
-  RSP: number;
+  WSP?: number;
+  Price: number;
   dateCreated: string;
   expiryDate: string;
   Status: string;
@@ -70,110 +70,110 @@ const SubscriptionTable: React.FC = () => {
   const data: SubscriptionData[] = [
   {
     key: '1',
-    emailId: 'john.doe@example.com',
+    subscriber: 'john.doe@example.com',
     planName: 'Basic Plan',
     ICCID: '8901410321112100503',
     WSP: 15.99,
-    RSP: 20.99,
+    Price: 20.99,
     dateCreated: '2023-01-15',
     expiryDate: '2024-01-15',
     Status: 'Active',
   },
   {
     key: '2',
-    emailId: 'jane.smith@example.com',
+    subscriber: 'jane.smith@example.com',
     planName: 'Premium Plan',
     ICCID: '8901410321112100504',
     WSP: 25.99,
-    RSP: 20.99,
+    Price: 20.99,
     dateCreated: '2022-07-30',
     expiryDate: '2023-07-30',
     Status: 'Expired',
   },
   {
     key: '3',
-    emailId: 'mike.jones@example.com',
+    subscriber: 'mike.jones@example.com',
     planName: 'Standard Plan',
     ICCID: '8901410321112100505',
     WSP: 19.99,
-    RSP: 20.99,
+    Price: 20.99,
     dateCreated: '2023-03-01',
     expiryDate: '2024-03-01',
     Status: 'Active',
   },
   {
     key: '4',
-    emailId: 'lisa.white@example.com',
+    subscriber: 'lisa.white@example.com',
     planName: 'Family Plan',
     ICCID: '8901410321112100506',
     WSP: 35.99,
-    RSP: 20.99,
+    Price: 20.99,
     dateCreated: '2023-06-10',
     expiryDate: '2024-06-10',
     Status: 'Active',
   },
   {
     key: '5',
-    emailId: 'robert.brown@example.com',
+    subscriber: 'robert.brown@example.com',
     planName: 'Student Plan',
     ICCID: '8901410321112100507',
     WSP: 10.99,
-    RSP: 20.99,
+    Price: 20.99,
     dateCreated: '2022-11-20',
     expiryDate: '2023-11-20',
     Status: 'Expired',
   },
   {
     key: '6',
-    emailId: 'susan.green@example.com',
+    subscriber: 'susan.green@example.com',
     planName: 'Business Plan',
     ICCID: '8901410321112100508',
     WSP: 49.99,
-    RSP: 20.99,
+    Price: 20.99,
     dateCreated: '2023-02-15',
     expiryDate: '2024-02-15',
     Status: 'Active',
   },
   {
     key: '7',
-    emailId: 'david.miller@example.com',
+    subscriber: 'david.miller@example.com',
     planName: 'Basic Plan',
     ICCID: '8901410321112100509',
     WSP: 12.99,
-    RSP: 20.99,
+    Price: 20.99,
     dateCreated: '2023-08-01',
     expiryDate: '2024-08-01',
     Status: 'Active',
   },
   {
     key: '8',
-    emailId: 'emily.davis@example.com',
+    subscriber: 'emily.davis@example.com',
     planName: 'VIP Plan',
     ICCID: '8901410321112100510',
     WSP: 59.99,
-    RSP: 20.99,
+    Price: 20.99,
     dateCreated: '2022-12-05',
     expiryDate: '2023-12-05',
     Status: 'Expired',
   },
   {
     key: '9',
-    emailId: 'william.clark@example.com',
+    subscriber: 'william.clark@example.com',
     planName: 'Family Plan',
     ICCID: '8901410321112100511',
     WSP: 39.99,
-    RSP: 20.99,
+    Price: 20.99,
     dateCreated: '2023-04-10',
     expiryDate: '2024-04-10',
     Status: 'Active',
   },
   {
     key: '10',
-    emailId: 'sophia.martin@example.com',
+    subscriber: 'sophia.martin@example.com',
     planName: 'Premium Plan',
     ICCID: '8901410321112100512',
     WSP: 27.99,
-    RSP: 20.99,
+    Price: 20.99,
     dateCreated: '2023-07-21',
     expiryDate: '2024-07-21',
     Status: 'Active',
@@ -193,9 +193,9 @@ const SubscriptionTable: React.FC = () => {
     },
     
     {
-      title: 'Email ID',
-      dataIndex: 'emailId',
-      key: 'emailId',
+      title: 'Subscriber',
+      dataIndex: 'subscriber',
+      key: 'subscriber',
     },
     {
       title: 'Plan name',
@@ -207,15 +207,15 @@ const SubscriptionTable: React.FC = () => {
       dataIndex: 'ICCID',
       key: 'ICCID',
     },
+    // {
+    //   title: 'WSP',
+    //   dataIndex: 'WSP',
+    //   key: 'WSP',
+    // },
     {
-      title: 'WSP',
-      dataIndex: 'WSP',
-      key: 'WSP',
-    },
-    {
-      title: 'RSP',
-      dataIndex: 'RSP',
-      key: 'RSP',
+      title: 'Price',
+      dataIndex: 'Price',
+      key: 'Price',
     },
     {
       title: 'Date Created',

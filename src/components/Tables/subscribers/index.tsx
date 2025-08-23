@@ -172,7 +172,7 @@ const SubscribersTable: React.FC = () => {
       key: "actions",
       render: (_: any, record: SubscriberData) => (
         <Space size="middle">
-          <Button type="link" icon={<InfoCircleOutlined />} />
+          <Button type="link" href="/subscribers/1" icon={<InfoCircleOutlined />} />
           {/* <Button type="link" icon={<EditOutlined />} />
           <Button type="link" icon={<DeleteOutlined />} /> */}
         </Space>

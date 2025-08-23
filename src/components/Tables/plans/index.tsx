@@ -22,7 +22,7 @@ interface PlanData {
   name: string;
   wholesalePrice?: string;
   retailPrice: string;
-  planType: string;
+  planType?: string;
   destination: string;
   dataOrValidity: string;
   status: string; // "Active" or "De-activated"
@@ -142,22 +142,25 @@ const PlansTable: React.FC<{ data: PlanData[] }> = ({ data }) => {
       key: "name",
       render: (text: string) => <a>{text}</a>,
     },
-    {
-      title: "RSP",
-      dataIndex: "retailPrice",
-      key: "retailPrice",
-    },
+    
     {
       title: "WSP",
       dataIndex: "wholesalePrice",
       key: "wholesalePrice",
       render: (text: string) => <a>{(text)? text : "N/A"}</a>,
     },
+    
     {
-      title: "Plan Type",
-      dataIndex: "planType",
-      key: "planType",
+      title: "RSP",
+      dataIndex: "retailPrice",
+      key: "retailPrice",
     },
+    
+    // {
+    //   title: "Plan Type",
+    //   dataIndex: "planType",
+    //   key: "planType",
+    // },
     {
       title: "Destination",
       dataIndex: "destination",

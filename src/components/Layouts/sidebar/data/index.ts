@@ -34,7 +34,7 @@ export const NAV_DATA = [
             {
         title: "Plans",
         url: "/plans",
-        icon: Icons.PieChart,
+        icon: Icons.Calendar,
         items: [],
       },
 
@@ -56,7 +56,7 @@ export const NAV_DATA = [
       {
         title: "Subscriptions",
         url: "/subscriptions",
-        icon: Icons.SubscriptionIcon ,
+        icon: Icons.PieChart ,
         items: [],
       },
 

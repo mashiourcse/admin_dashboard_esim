@@ -2,13 +2,13 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Support Page",
+  title: "Support",
 };
 
 export default function Page() {
   return (
     <div className="mx-auto w-full max-w-[1080px]">
-      <Breadcrumb pageName="Settings" />
+      <Breadcrumb pageName="Support" />
 
       <div className="grid grid-cols-5 gap-8">
         <div className="col-span-5 xl:col-span-3">
