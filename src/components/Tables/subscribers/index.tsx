@@ -12,7 +12,7 @@ interface SubscriberData {
   subscriberName: string;
   emailId: string;
   noOfPlans: number;
-  phone: string;
+  phone?: string;
   activePlans: number;
   dateCreated: string;
 }
@@ -265,10 +265,16 @@ const SubscribersTable: React.FC = () => {
     },
     
     {
-      title: 'Phone',
-      dataIndex: 'phone',
-      key: 'phone',
+      title: 'Email',
+      dataIndex: 'emailId',
+      key: 'emailId',
     },
+
+    // {
+    //   title: 'Phone',
+    //   dataIndex: 'phone',
+    //   key: 'phone',
+    // },
     {
       title: 'No of Plans',
       dataIndex: 'noOfPlans',
