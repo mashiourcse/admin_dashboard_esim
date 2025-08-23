@@ -49,14 +49,14 @@ export const NAV_DATA = [
       {
         title: "Subscribers",
         url: "/subscribers",
-        icon: Icons.Alphabet,
+        icon: Icons.PersonIcon,
         items: [],
       },
 
       {
         title: "Subscriptions",
         url: "/subscriptions",
-        icon: Icons.ArrowLeftIcon ,
+        icon: Icons.SubscriptionIcon ,
         items: [],
       },
 
@@ -115,6 +115,26 @@ export const NAV_DATA = [
             title: "Operators",
             url: "/network/operators",
           },
+          {
+            title: "Terminal",
+            url: "/network/terminal",
+          },
+        ],
+      },
+
+      {
+        title: "Help Center",
+        icon: Icons.HeadsetIcon,
+        items: [
+          {
+            title: "Contact Us",
+            url: "/help-center/contactus",
+          },
+          {
+            title: "Support",
+            url: "/help-center/support",
+          },
+          
         ],
       },
     ],

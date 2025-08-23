@@ -13,6 +13,7 @@ interface SubscriberData {
   phone?: string;
   activePlans: number;
   dateCreated: string;
+  status?: string;
 }
 
 const subscriberData: SubscriberData = {
@@ -22,7 +23,7 @@ const subscriberData: SubscriberData = {
   noOfPlans: 4,
   activePlans: 2,
   dateCreated: '2025-08-15',
-
+  status: 'active'
 };
 
 
@@ -69,7 +70,7 @@ const { theme: currentTheme } = useTheme();
       <Row gutter={[16, 16]}>
         <Col span={8}>
           <Card
-            className="rounded-full py-4 px-6 border border-gray-300 w-full flex justify-between"
+            className=" py-4 px-6 border border-gray-300 w-full flex justify-between"
             key={"iccid"}
           >
             <Text className='mr-5 font-extrabold'>Subscriber Name: </Text>
@@ -79,7 +80,7 @@ const { theme: currentTheme } = useTheme();
 
         <Col span={8}>
           <Card
-            className="rounded-full py-4 px-6 border border-gray-300 w-full flex justify-between"
+            className="py-4 px-6 border border-gray-300 w-full flex justify-between"
             key={"activationCode"}
           >
             <strong className='mr-5'>Email: </strong>
@@ -89,7 +90,7 @@ const { theme: currentTheme } = useTheme();
 
         <Col span={8}>
           <Card
-            className="rounded-full py-4 px-6 border border-gray-300 w-full flex justify-between"
+            className="py-4 px-6 border border-gray-300 w-full flex justify-between"
             key={"imsi"}
           >
             <strong className='mr-5'>Date Created: </strong>
@@ -99,11 +100,21 @@ const { theme: currentTheme } = useTheme();
 
         <Col span={8}>
           <Card
-            className="rounded-full py-4 px-6 border border-gray-300 w-full flex justify-between"
+            className=" py-4 px-6 border border-gray-300 w-full flex justify-between"
             key={"subscriberName"}
           >
-            <strong className='mr-5'>Subscriber: </strong>
-            <Text>{subscriberData.subscriberName}</Text>
+            <strong className='mr-5'>Active Plans: </strong>
+            <Text>{subscriberData.activePlans}</Text>
+          </Card>
+        </Col>
+
+        <Col span={8}>
+          <Card
+            className=" py-4 px-6 border border-gray-300 w-full flex justify-between"
+            key={"subscriberName"}
+          >
+            <strong className='mr-5'>Total Plans: </strong>
+            <Text>{subscriberData.activePlans}</Text>
           </Card>
         </Col>
 
@@ -119,13 +130,13 @@ const { theme: currentTheme } = useTheme();
 
         <Col span={8}>
           <Card
-            className={`rounded-full py-4 px-6 border border-gray-300 w-full flex justify-between`}
+            className={`py-4 px-6 border border-gray-300 w-full flex justify-between`}
             key={"status"}
           >
             <strong className='mr-5'>Status: </strong>
-            {/* <Text type={simData.status === 'in-service' ? 'success' : 'danger'} 
-             className={`${simData.status === 'in-service' ? 'text-green-100' : 'text-red-100'}`}
-            >{simData.status}</Text> */}
+            <Text type={subscriberData.status === 'active' ? 'success' : 'danger'} 
+             className={`${subscriberData.status === 'active' ? 'text-green-100' : 'text-red-100'}`}
+            >{subscriberData.status}</Text>
           </Card>
         </Col>
       </Row>
