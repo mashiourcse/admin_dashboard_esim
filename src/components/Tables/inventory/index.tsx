@@ -10,6 +10,7 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import HeaderCard from "./HeaderCard";
+import Loading from "@/components/ui/Loading";
 
 // Interface for inventory data
 interface InventoryData {
@@ -224,7 +225,7 @@ const InventoryTable: React.FC = () => {
     <ConfigProvider theme={antTheme}>
       <HeaderCard title="" />
       <br />
-      <Table
+      {loading? <Loading/> : <Table
         columns={columns}
         dataSource={data}
         pagination={{
@@ -238,7 +239,7 @@ const InventoryTable: React.FC = () => {
           showSizeChanger: true,
           pageSizeOptions: ["5", "10", "20"],
         }}
-      />
+      />}
       {/* <Button type="primary" style={{ marginBottom: 16, alignItems: "center" }}>
         Add New Inventory
       </Button> */}
