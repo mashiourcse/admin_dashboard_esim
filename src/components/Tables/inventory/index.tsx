@@ -1,5 +1,6 @@
 "use client";
 import axiosInstance from "@/api/axios";
+import Loading from "@/components/ui/Loading";
 import { formatDateInHumanReadable } from "@/lib/format-date-and-time";
 import { handleCopyClipboard } from "@/lib/utils";
 import { CopyOutlined } from "@ant-design/icons";
@@ -12,7 +13,6 @@ import {
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import HeaderCard from "./HeaderCard";
-import Loading from "@/components/ui/Loading";
 
 // Interface for inventory data
 interface InventoryData {
@@ -90,9 +90,16 @@ const InventoryTable: React.FC = () => {
         const response = await axiosInstance.get("/inventories?results=10");
         // console.log(response.data.data);
 
+        const baseUrl =
+          window.location.protocol +
+          "//" +
+          window.location.hostname +
+          (window.location.port ? ":" + window.location.port : "");
+
         const transformedData = response.data.data.map((item: any) => {
           return {
             _id: item._id,
+            id: item.custom_id,
             iccid: item.iccid,
             sim_status: item.sim_status,
             created_date: item.created_date,
@@ -103,7 +110,7 @@ const InventoryTable: React.FC = () => {
             imsi: item.mapped_imsi,
             createdAt: formatDateInHumanReadable(item.createdAt),
             updatedAt: formatDateInHumanReadable(item.updatedAt),
-            dashboard_url: item.dashboard_url,
+            dashboard_url: baseUrl + "/" + item.custom_id,
           };
         });
 
