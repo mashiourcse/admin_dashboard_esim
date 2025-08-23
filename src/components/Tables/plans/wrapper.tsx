@@ -15,6 +15,7 @@ import {
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import PlansTable from "."; // Import your PlansTable component
+import Loading from "@/components/ui/Loading";
 
 const Wrapper = () => {
   const [selectedCountry, setSelectedCountry] = useState<string>("USA");
@@ -287,7 +288,7 @@ const Wrapper = () => {
       </ConfigProvider>
 
       {/* Plans Table */}
-      <PlansTable data={data} />
+      {loading? <Loading/> : <PlansTable data={data} />}
     </div>
   );
 };

@@ -22,6 +22,7 @@ import {
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import AddCard from "./AddCard";
+import Loading from "@/components/ui/Loading";
 
 // Interface for user data
 interface UserData {
@@ -257,7 +258,7 @@ const UsersTable: React.FC = () => {
   return (
     <ConfigProvider theme={antTheme}>
       <AddCard title="" />
-      <Table
+      {loading? <Loading/> : <Table
         columns={columns}
         dataSource={data}
         pagination={{
@@ -271,7 +272,9 @@ const UsersTable: React.FC = () => {
           showSizeChanger: true,
           pageSizeOptions: ["5", "10", "20"],
         }}
-      />
+      />}
+
+
       <Modal
         title="User Information"
         visible={isModalVisible}
