@@ -7,9 +7,9 @@ import {
 } from "@ant-design/icons";
 import { Button, ConfigProvider, Space, Table, theme } from "antd";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import HeaderCard from "./HeaderCard";
-import Link from "next/link";
 
 // Interface for inventory data
 interface InventoryData {
@@ -104,10 +104,10 @@ const InventoryTable: React.FC = () => {
             sim_status: item.sim_status,
             created_date: item.created_date,
             modified_date: item.modified_date,
-            imsi:
-              item.imsis?.map((imsiObj: any) => imsiObj.imsi).join(", ") ||
-              null,
-            mapped_imsi: item.mapped_imsi,
+            // imsi:
+            //   item.imsis?.map((imsiObj: any) => imsiObj.imsi).join(", ") ||
+            //   null,
+            imsi: item.mapped_imsi,
             createdAt: formatDate(item.createdAt),
             updatedAt: formatDate(item.updatedAt),
           };
