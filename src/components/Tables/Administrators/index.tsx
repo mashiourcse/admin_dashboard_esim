@@ -1,5 +1,6 @@
 "use client";
 import axiosInstance from "@/api/axios";
+import { formatDateInHumanReadable } from "@/lib/format-date-and-time";
 import {
   CopyOutlined,
   DeleteOutlined,
@@ -97,15 +98,6 @@ const UsersTable: React.FC = () => {
         console.log(response.data.data);
 
         const transformedData = response.data.data.map((item: any) => {
-          const formatDate = (dateStr: string) =>
-            new Date(dateStr).toLocaleString("en-GB", {
-              day: "2-digit",
-              month: "short",
-              year: "numeric",
-              hour: "2-digit",
-              minute: "2-digit",
-              hour12: true,
-            });
 
           return {
             _id: item.id,
@@ -113,7 +105,7 @@ const UsersTable: React.FC = () => {
             email: item.email,
             // signupDate: formatDate(item.createdAt),
             role: item.role,
-            createdAt: formatDate(item.createdAt),
+            createdAt: formatDateInHumanReadable(item.createdAt),
             // phoneNumber: item.phoneNumber,
           };
         });

@@ -1,13 +1,15 @@
 "use client";
 import axiosInstance from "@/api/axios";
+import { formatDateInHumanReadable } from "@/lib/format-date-and-time";
+import { handleCopyClipboard } from "@/lib/utils";
+import { CopyOutlined } from "@ant-design/icons";
 import {
-  DeleteOutlined,
-  EditOutlined,
-  InfoCircleOutlined,
-} from "@ant-design/icons";
-import { Button, ConfigProvider, Space, Table, theme } from "antd";
+  Button,
+  ConfigProvider,
+  Table,
+  theme
+} from "antd";
 import { useTheme } from "next-themes";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import HeaderCard from "./HeaderCard";
 
@@ -88,16 +90,6 @@ const InventoryTable: React.FC = () => {
         // console.log(response.data.data);
 
         const transformedData = response.data.data.map((item: any) => {
-          const formatDate = (dateStr: string) =>
-            new Date(dateStr).toLocaleString("en-GB", {
-              day: "2-digit",
-              month: "short",
-              year: "numeric",
-              hour: "2-digit",
-              minute: "2-digit",
-              hour12: true,
-            });
-
           return {
             _id: item._id,
             iccid: item.iccid,
@@ -108,8 +100,9 @@ const InventoryTable: React.FC = () => {
             //   item.imsis?.map((imsiObj: any) => imsiObj.imsi).join(", ") ||
             //   null,
             imsi: item.mapped_imsi,
-            createdAt: formatDate(item.createdAt),
-            updatedAt: formatDate(item.updatedAt),
+            createdAt: formatDateInHumanReadable(item.createdAt),
+            updatedAt: formatDateInHumanReadable(item.updatedAt),
+            dashboard_url: item.dashboard_url,
           };
         });
 
@@ -140,7 +133,7 @@ const InventoryTable: React.FC = () => {
 
   const columns: (InventoryColumn | ActionColumn)[] = [
     {
-      title: "#",
+      title: "SL.NO",
       key: "#",
       render: (_: any, __: InventoryData, index: number) => {
         // Calculate the global index based on page and pageSize
@@ -148,72 +141,96 @@ const InventoryTable: React.FC = () => {
       },
     },
     {
-      title: "ICCID",
-      dataIndex: "iccid",
-      key: "iccid",
-    },
-    {
       title: "ID",
       dataIndex: "id",
       key: "id",
-      render: (id: string) => <span>{(id)? id : "N/A"}</span>,
+      render: (id: string) => <span>{id ? id : "N/A"}</span>,
     },
-    {
-      title: "Activation Code",
-      dataIndex: "activationCode",
-      key: "activationCode",
-      render: (activationCode: string) => <span>{(activationCode)? activationCode : "N/A"}</span>,
-    },
-    {
-      title: "IMSI",
-      dataIndex: "imsi",
-      key: "imsi",
-    },
-   // dashboard_url
     {
       title: "Subscriber",
       dataIndex: "subscriber",
       key: "subscriber",
-      render: (subscriber: string) => <span>{subscriber ? subscriber : "N/A"}</span>,
+      render: (subscriber: string) => (
+        <span>{subscriber ? subscriber : "N/A"}</span>
+      ),
     },
     {
-      title: "Date Created",
-      dataIndex: "createdAt",
-      key: "createdAt",
-      render: (createdAt: string) => <div style={{width: "125px"}} className="text-xs">{createdAt ? createdAt : "Not Assigned"}</div>,
+      title: "ICCID",
+      dataIndex: "iccid",
+      key: "iccid",
     },
+    // {
+    //   title: "Activation Code",
+    //   dataIndex: "activationCode",
+    //   key: "activationCode",
+    //   render: (activationCode: string) => (
+    //     <span>{activationCode ? activationCode : "N/A"}</span>
+    //   ),
+    // },
+    // {
+    //   title: "IMSI",
+    //   dataIndex: "imsi",
+    //   key: "imsi",
+    // },
+    // dashboard_url
+
+    // {
+    //   title: "Date Created",
+    //   dataIndex: "createdAt",
+    //   key: "createdAt",
+    //   render: (createdAt: string) => (
+    //     <div style={{ width: "125px" }} className="text-xs">
+    //       {createdAt ? createdAt : "Not Assigned"}
+    //     </div>
+    //   ),
+    // },
     {
       title: "Date Assigned",
       dataIndex: "lastModified",
       key: "lastModified",
-       render: (lastModified: string) => <span>{lastModified ? lastModified : "Not Assigned"}</span>,
+      render: (lastModified: string) => (
+        <span>{lastModified ? lastModified : "Not Assigned"}</span>
+      ),
     },
-     {
-      title: "Dashboard URL",
-      dataIndex: "dashboard_url",
-      key: "dashboard_url",
-       render: (dashboard_url: string) => <Link href={`/inventory/sim-dashboard/${"1"}`}>{dashboard_url ? "Click here" : "Click here"}</Link>,
-      // upore 1 jekane ase oikane dashboard_url bosaben, eita basically sim_id hobe
-      // jeta sim dashboard page e pathano hobe
-      },
-
     {
       title: "Status",
       dataIndex: "sim_status",
       key: "sim_status",
-      render: (status: string) => <div style={{width: "70px"}}>{status}</div>,
+      render: (status: string) => <div style={{ width: "70px" }}>{status}</div>,
     },
     {
-      title: "Actions",
-      key: "actions",
-      render: (_: any, record: InventoryData) => (
-        <Space size="middle">
-          <Button type="link" icon={<InfoCircleOutlined />} />
-          <Button type="link" icon={<EditOutlined className="text-black dark:text-white" />} />
-          <Button type="link" icon={<DeleteOutlined className="text-red" />} />
-        </Space>
+      title: "Dashboard URL",
+      dataIndex: "dashboard_url",
+      key: "dashboard_url",
+      render: (dashboard_url: string) => (
+        <div className="flex items-center gap-1">
+          <span>{dashboard_url ? dashboard_url : "Not Assigned"}</span>
+          <Button
+            type="text"
+            icon={<CopyOutlined />}
+            onClick={() => handleCopyClipboard({ text: dashboard_url })}
+            style={{ padding: 0 }}
+          />
+        </div>
       ),
+      // upore 1 jekane ase oikane dashboard_url bosaben, eita basically sim_id hobe
+      // jeta sim dashboard page e pathano hobe
     },
+
+    // {
+    //   title: "Actions",
+    //   key: "actions",
+    //   render: (_: any, record: InventoryData) => (
+    //     <Space size="middle">
+    //       <Button type="link" icon={<InfoCircleOutlined />} />
+    //       <Button
+    //         type="link"
+    //         icon={<EditOutlined className="text-black dark:text-white" />}
+    //       />
+    //       <Button type="link" icon={<DeleteOutlined className="text-red" />} />
+    //     </Space>
+    //   ),
+    // },
   ];
 
   if (!mounted) {
