@@ -16,12 +16,13 @@ import {
 } from "antd";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
+import { SubscriberInfoCard } from "./SubscriberInfoCard";
 
 interface PlanData {
   key: string;
   name: string;
   ICCID: string;
-  planExpiry: string;
+  dateAssigned: string;
   status: string; // "Active" or "Expired"
 }
 
@@ -104,12 +105,12 @@ const SubscriberPlans: React.FC<{ data: PlanData[] }> = ({ data }) => {
         return (currentPage - 1) * pageSize + index + 1;
       },
     },
-    {
-      title: "Plan Name",
-      dataIndex: "name",
-      key: "name",
-      render: (text: string) => <a>{text}</a>,
-    },
+    // {
+    //   title: "Plan Name",
+    //   dataIndex: "name",
+    //   key: "name",
+    //   render: (text: string) => <a>{text}</a>,
+    // },
     {
       title: "ICCID",
       dataIndex: "ICCID",
@@ -118,9 +119,9 @@ const SubscriberPlans: React.FC<{ data: PlanData[] }> = ({ data }) => {
     },
 
     {
-      title: "Plan Expiry",
-      dataIndex: "planExpiry",
-      key: "planExpiry",
+      title: "Date Assigned",
+      dataIndex: "dateAssigned",
+      key: "dateAssigned",
       render: (text: string) => <a>{text}</a>,
     },
 
@@ -131,39 +132,62 @@ const SubscriberPlans: React.FC<{ data: PlanData[] }> = ({ data }) => {
       render: (text: string) => <a>{text}</a>,
     },
 
-    {
-      title: "Actions",
-      key: "actions",
-      render: (_: any, record: PlanData) => (
-        <Space size="middle">
-          <Button
-            type="link"
-            icon={<InfoCircleOutlined />}
-            onClick={() => handleInfoClick(record)}
-          />
-          {/* <Switch
-            checked={record.status === "Active"}
-            onChange={() => handleToggleStatus(record)}
-            checkedChildren=""
-            unCheckedChildren=""
-          />
-          <Button
-            type="link"
-            icon={<DeleteOutlined className="text-red-500" />}
-            onClick={() => handleDeleteClick(record)}
-          /> */}
-        </Space>
-      ),
-    },
+    // {
+    //   title: "Actions",
+    //   key: "actions",
+    //   render: (_: any, record: PlanData) => (
+    //     <Space size="middle">
+    //       <Button
+    //         type="link"
+    //         icon={<InfoCircleOutlined />}
+    //         onClick={() => handleInfoClick(record)}
+    //       />
+    //       {/* <Switch
+    //         checked={record.status === "Active"}
+    //         onChange={() => handleToggleStatus(record)}
+    //         checkedChildren=""
+    //         unCheckedChildren=""
+    //       />
+    //       <Button
+    //         type="link"
+    //         icon={<DeleteOutlined className="text-red-500" />}
+    //         onClick={() => handleDeleteClick(record)}
+    //       /> */}
+    //     </Space>
+    //   ),
+    // },
   ];
 
   if (!mounted) {
     return null;
   }
 
+   const subscriberData = {
+    name: "Nidal Nabi Chowdhury",
+    country: "Bangladesh",
+    countryCode: "BD",
+    email: "nidalchy@gmail.com",
+    phone: "+8801976358690",
+    created: "2025-08-18",
+    notes: ""
+  };
+
   return (
     <ConfigProvider theme={antTheme}>
-      <Table
+      <div className="w-full grid grid-cols-12 md:grid-cols-12 gap-6">
+        <div className="cols-span-12 md:col-span-5">
+          <SubscriberInfoCard subscriber={subscriberData}  />
+        </div>
+      <div className="cols-span-12 md:col-span-7">
+       <Card
+       title={
+          <div className="flex justify-between items-center">
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">eSIM</h2>
+           
+          </div>
+        }
+       >
+         <Table
         columns={columns}
         dataSource={data}
         pagination={{
@@ -178,6 +202,9 @@ const SubscriberPlans: React.FC<{ data: PlanData[] }> = ({ data }) => {
           pageSizeOptions: ["5", "10", "20"],
         }}
       />
+       </Card>
+      </div>
+      </div>
 
       <Modal
         title="Plan Information"
@@ -200,7 +227,7 @@ const SubscriberPlans: React.FC<{ data: PlanData[] }> = ({ data }) => {
                 />
               </Form.Item>
               {/* <Form.Item label="Plan Type">
-                <Input name="planType" value={formData.planExpiry} readOnly />
+                <Input name="planType" value={formData.dateAssigned} readOnly />
               </Form.Item> */}
               <Form.Item label="Destination">
                 <Input

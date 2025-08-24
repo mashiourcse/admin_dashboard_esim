@@ -37,6 +37,31 @@ export async function getDevicesUsedData(
   return data;
 }
 
+export async function getCountriesData(
+  timeFrame?: "monthly" | "yearly" | (string & {}),
+) {
+  // Fake delay
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  const data = [
+    { name: "Bangladesh", percentage: 10, amount: 250 },
+    { name: "Myanmar", percentage: 5, amount: 125 },
+    { name: "USA", percentage: 10, amount: 250 },
+    { name: "India", percentage: 7, amount: 175 },
+    { name: "China", percentage: 8, amount: 200 },
+    { name: "Germany", percentage: 9, amount: 225 },
+    { name: "Brazil", percentage: 6, amount: 150 },
+    { name: "Russia", percentage: 8, amount: 200 },
+    { name: "UK", percentage: 7, amount: 175 },
+    { name: "Canada", percentage: 8, amount: 200 },
+  ];
+
+
+
+  return data;
+}
+
+
 export async function getPaymentsOverviewData(
   timeFrame?: "monthly" | "yearly" | (string & {}),
 ) {
