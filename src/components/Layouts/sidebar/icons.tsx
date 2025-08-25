@@ -86,6 +86,23 @@ export function HomeIcon(props: PropsType) {
   );
 }
 
+export function ClickSquareIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={24}
+      height={24}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      {...props}
+    >
+      <path d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" />
+      <path d="M10 10h4v4h-4z" />
+      <path d="M16 6l2-2-2-2v1h-1v2h2z" />
+    </svg>
+  );
+}
+
 export function Calendar(props: PropsType) {
   return (
     <svg

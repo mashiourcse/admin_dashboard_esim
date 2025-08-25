@@ -12,6 +12,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { LogOutIcon, SettingsIcon, UserIcon } from "./icons";
 import { useAuth } from "@/components/Auth/Context/AuthContext";
+import { Button } from "antd";
 export function UserInfo() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -106,20 +107,17 @@ export function UserInfo() {
         <hr className="border-[#E8E8E8] dark:border-dark-3" />
 
         <div className="p-2 text-base text-[#4B5563] dark:text-dark-6">
-          <Link
+          <a
           href={"/auth/sign-in"}
             className="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-[9px] hover:bg-gray-2 hover:text-dark dark:hover:bg-dark-3 dark:hover:text-white"
             onClick={() => {
-              setTimeout(() => {
-                logout();
-              }, 3000);
-              
+              logout();
             }}
           >
             <LogOutIcon />
 
             <span className="text-base font-medium">Log out</span>
-          </Link>
+          </a>
         </div>
       </DropdownContent>
     </Dropdown>

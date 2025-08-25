@@ -1,0 +1,259 @@
+"use client";
+
+import React, { useState } from 'react';
+import { Card, Button, Tag, Form, Input, Select, DatePicker, message } from 'antd';
+import { 
+  EditOutlined, 
+  MailOutlined, 
+  PhoneOutlined, 
+  GlobalOutlined, 
+  CalendarOutlined,
+  SaveOutlined,
+  CloseOutlined
+} from '@ant-design/icons';
+import dayjs from 'dayjs';
+
+const { Option } = Select;
+const { TextArea } = Input;
+
+interface Subscriber {
+  name: string;
+  country: string;
+  countryCode: string;
+  email: string;
+  phone: string;
+  created: string;
+  notes: string;
+}
+
+interface SubscriberInfoCardProps {
+  subscriber: Subscriber;
+  onSave?: (subscriber: Subscriber) => void;
+}
+
+export const SubscriberInfoCard: React.FC<SubscriberInfoCardProps> = ({ subscriber }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [form] = Form.useForm();
+  const [loading, setLoading] = useState(false);
+
+  // Country options
+  const countryOptions = [
+    { code: 'BD', name: 'Bangladesh' },
+    { code: 'US', name: 'United States' },
+    { code: 'UK', name: 'United Kingdom' },
+    { code: 'CA', name: 'Canada' },
+    { code: 'AU', name: 'Australia' },
+    { code: 'DE', name: 'Germany' },
+    { code: 'FR', name: 'France' },
+    { code: 'JP', name: 'Japan' },
+  ];
+
+  const handleEdit = () => {
+    form.setFieldsValue({
+      ...subscriber,
+      created: dayjs(subscriber.created),
+    });
+    setIsEditing(true);
+  };
+
+  const handleSave = async () => {
+   
+  };
+
+  const handleCancel = () => {
+    form.resetFields();
+    setIsEditing(false);
+  };
+
+  return (
+    <div className="flex items-center justify-center p-4">
+      <Card 
+        className="w-full max-w-xl shadow-lg rounded-lg"
+        title={
+          <div className="flex justify-between items-center">
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Subscriber Details</h2>
+            {!isEditing ? (
+              <Button type="primary" icon={<EditOutlined />} onClick={handleEdit}>
+                Edit Subscriber
+              </Button>
+            ) : (
+              <div className="space-x-2">
+                <Button 
+                  icon={<CloseOutlined />} 
+                  onClick={handleCancel}
+                  disabled={loading}
+                >
+                  Cancel
+                </Button>
+                <Button 
+                  type="primary" 
+                  icon={<SaveOutlined />} 
+                  onClick={handleSave}
+                  loading={loading}
+                >
+                  Save Changes
+                </Button>
+              </div>
+            )}
+          </div>
+        }
+      >
+        <Form
+          form={form}
+          layout="vertical"
+          initialValues={subscriber}
+        >
+          <div className="space-y-6">
+            {/* Name Field */}
+            <div className="flex items-start">
+              <div className="w-1/4 text-sm font-medium text-gray-600 dark:text-white pt-2">Name</div>
+              <div className="flex-1">
+                {isEditing ? (
+                  <Form.Item
+                    name="name"
+                    rules={[{ required: true, message: 'Please enter Subscriber name' }]}
+                    className="mb-0"
+                  >
+                    <Input placeholder="Enter Subscriber name" />
+                  </Form.Item>
+                ) : (
+                  <div className="text-base text-gray-900 dark:text-white">{subscriber.name}</div>
+                )}
+              </div>
+            </div>
+            
+            {/* Country Field */}
+            <div className="flex items-start">
+              <div className="w-1/4 text-sm font-medium text-gray-600 dark:text-white pt-2">Country</div>
+              <div className="flex-1">
+                {isEditing ? (
+                  <Form.Item
+                    name="countryCode"
+                    rules={[{ required: true, message: 'Please select a country' }]}
+                    className="mb-0"
+                  >
+                    <Select placeholder="Select country">
+                      {countryOptions.map(country => (
+                        <Option key={country.code} value={country.code}>
+                          {country.name} ({country.code})
+                        </Option>
+                      ))}
+                    </Select>
+                  </Form.Item>
+                ) : (
+                  <div className="flex items-center">
+                    <span className="w-3 h-3 rounded-full bg-green-500 mr-2"></span>
+                    <Tag icon={<GlobalOutlined />} color="blue">
+                      {subscriber.country} ({subscriber.countryCode})
+                    </Tag>
+                  </div>
+                )}
+              </div>
+            </div>
+            
+            {/* Email Field */}
+            <div className="flex items-start">
+              <div className="w-1/4 text-sm font-medium text-gray-600 dark:text-white pt-2">Email</div>
+              <div className="flex-1">
+                {isEditing ? (
+                  <Form.Item
+                    name="email"
+                    rules={[
+                      { required: true, message: 'Please enter email address' },
+                      { type: 'email', message: 'Please enter a valid email' }
+                    ]}
+                    className="mb-0"
+                  >
+                    <Input 
+                      prefix={<MailOutlined className="text-gray-500 dark:text-white" />} 
+                      placeholder="Enter email address" 
+                    />
+                  </Form.Item>
+                ) : (
+                  <div className="flex items-center">
+                    <MailOutlined className="mr-2 text-gray-500 dark:text-white" />
+                    <a href={`mailto:${subscriber.email}`} className="text-blue-500 hover:underline">
+                      {subscriber.email}
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+            
+            {/* Phone Field */}
+            <div className="flex items-start">
+              <div className="w-1/4 text-sm font-medium text-gray-600 dark:text-white pt-2">Phone</div>
+              <div className="flex-1">
+                {isEditing ? (
+                  <Form.Item
+                    name="phone"
+                    rules={[{ required: true, message: 'Please enter phone number' }]}
+                    className="mb-0"
+                  >
+                    <Input 
+                      prefix={<PhoneOutlined className="text-gray-500 dark:text-white" />} 
+                      placeholder="Enter phone number" 
+                    />
+                  </Form.Item>
+                ) : (
+                  <div className="flex items-center">
+                    <PhoneOutlined className="mr-2 text-gray-500 dark:text-white" />
+                    <a href={`tel:${subscriber.phone}`} className="text-gray-900 dark:text-white">
+                      {subscriber.phone}
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+            
+            {/* Created Field */}
+            <div className="flex items-start">
+              <div className="w-1/4 text-sm font-medium text-gray-600 dark:text-white pt-2">Created</div>
+              <div className="flex-1">
+                {isEditing ? (
+                  <Form.Item
+                    name="created"
+                    rules={[{ required: true, message: 'Please select creation date' }]}
+                    className="mb-0"
+                  >
+                    <DatePicker 
+                      className="w-full"
+                      suffixIcon={<CalendarOutlined className="text-gray-500 dark:text-white" />}
+                    />
+                  </Form.Item>
+                ) : (
+                  <div className="flex items-center">
+                    <CalendarOutlined className="mr-2 text-gray-500 dark:text-white" />
+                    <span className="text-gray-700 dark:text-white">{subscriber.created}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+            
+            {/* Notes Field */}
+            <div className="flex items-start">
+              <div className="w-1/4 text-sm font-medium text-gray-600 dark:text-white pt-2">Notes</div>
+              <div className="flex-1">
+                {isEditing ? (
+                  <Form.Item
+                    name="notes"
+                    className="mb-0"
+                  >
+                    <TextArea 
+                      rows={4} 
+                      placeholder="Enter notes about the Subscriber" 
+                    />
+                  </Form.Item>
+                ) : (
+                  <div className="text-gray-700 dark:text-white bg-gray-100 dark:bg-blue-950 p-3 rounded-md min-h-[100px]">
+                    {subscriber.notes || "No notes available..."}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </Form>
+      </Card>
+    </div>
+  );
+};

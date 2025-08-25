@@ -2,6 +2,7 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { Metadata } from "next";
 
 import SubscribersTable from "@/components/Tables/subscribers";
+import SubscriptionTable from "@/components/Tables/subscriptions";
 
 export const metadata: Metadata = {
   title: "Tables",
@@ -12,7 +13,7 @@ const TablesPage = () => {
     <>
       <Breadcrumb pageName="Subscriptions" />
       <div className="space-y-10">
-        <SubscribersTable />
+        <SubscriptionTable />
       </div>
     </>
   );

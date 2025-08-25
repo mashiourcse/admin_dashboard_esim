@@ -5,7 +5,7 @@ import type { ApexOptions } from "apexcharts";
 import dynamic from "next/dynamic";
 
 type PropsType = {
-  data: { name: string; amount: number }[];
+  data: { name: string; percentage: number }[]; // Use percentage instead of amount
 };
 
 const Chart = dynamic(() => import("react-apexcharts"), {
@@ -18,7 +18,7 @@ export function DonutChart({ data }: PropsType) {
       type: "donut",
       fontFamily: "inherit",
     },
-    colors: ["#5750F1", "#5475E5", "#8099EC", "#ADBCF2"],
+    colors: ["#5750F1", "#5475E5", "#8099EC", "#ADBCF2", "#4CAF50", "#FF5722", "#FFEB3B", "#795548", "#607D8B", "#9C27B0"],
     labels: data.map((item) => item.name),
     legend: {
       show: true,
@@ -28,8 +28,8 @@ export function DonutChart({ data }: PropsType) {
         vertical: 5,
       },
       formatter: (legendName, opts) => {
-        const { seriesPercent } = opts.w.globals;
-        return `${legendName}: ${seriesPercent[opts.seriesIndex]}%`;
+        const percentage = data[opts.seriesIndex].percentage;
+        return `${legendName}: ${percentage}%`; // Show the percentage instead of amount
       },
     },
     plotOptions: {
@@ -42,15 +42,9 @@ export function DonutChart({ data }: PropsType) {
             total: {
               show: true,
               showAlways: true,
-              label: "Visitors",
+              label: "Usage %",
               fontSize: "16px",
               fontWeight: "400",
-            },
-            value: {
-              show: true,
-              fontSize: "28px",
-              fontWeight: "bold",
-              formatter: (val) => compactFormat(+val),
             },
           },
         },
@@ -90,7 +84,7 @@ export function DonutChart({ data }: PropsType) {
   return (
     <Chart
       options={chartOptions}
-      series={data.map((item) => item.amount)}
+      series={data.map((item) => item.percentage)} // Use percentage for series
       type="donut"
     />
   );

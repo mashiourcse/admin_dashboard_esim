@@ -6,6 +6,7 @@ import { Button, ConfigProvider, Space, Table, theme } from "antd";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import DateRangeDropdown from "./DateRangeDropdown";
+import Link from "next/link";
 
 // Interface for subscriber data
 interface SubscriberData {
@@ -176,7 +177,9 @@ const SubscribersTable: React.FC = () => {
       key: "actions",
       render: (_: any, record: SubscriberData) => (
         <Space size="middle">
-          <Button type="link" icon={<InfoCircleOutlined />} />
+          <Link type="link" href="/subscribers/1"  >
+          <InfoCircleOutlined />
+          </Link>
           {/* <Button type="link" icon={<EditOutlined />} />
           <Button type="link" icon={<DeleteOutlined />} /> */}
         </Space>
