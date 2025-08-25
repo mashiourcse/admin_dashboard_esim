@@ -204,7 +204,7 @@ const columns: (SimUserColumn | ActionColumn)[] = [
  const simCard = {
   key: "12345",
   id: "sim123",
-  ICCID: "8901410321867112345",
+  iccid: "8901410321867112345",
   subscriberName: "John Doe",
   dateAssigned: "2025-08-25",
   status: "Active",

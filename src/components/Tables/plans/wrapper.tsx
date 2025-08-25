@@ -256,9 +256,7 @@ const Wrapper = () => {
   return (
     <div>
       <ConfigProvider theme={antTheme}>
-        <Card>
-          <SimDashboard />
-        </Card>
+        
         <Card>
           <Space
           direction="horizontal"

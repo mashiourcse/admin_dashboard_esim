@@ -20,7 +20,7 @@ interface SimCard {
   key?: string;
   
   id?: string;
-  ICCID?: string;
+  iccid?: string;
   subscriberName?: string;
   dateAssigned?: string;
   status?: string;
@@ -115,8 +115,8 @@ export const SimCardInfoCard: React.FC<SimCardInfoCardProps> = ({ SimCard }) => 
           <div className="space-y-6">
             
             {/* ID Field */}
-            <div className="flex items-start">
-              <div className="w-1/4 text-sm font-medium text-gray-600 dark:text-white pt-2">Name</div>
+            <div className="flex items-start flex-col">
+              <div className="w-1/4 text-sm font-medium text-gray-600 dark:text-white pt-2">Id</div>
               <div className="flex-1">
                 {isEditing ? (
                   <Form.Item
@@ -131,10 +131,29 @@ export const SimCardInfoCard: React.FC<SimCardInfoCardProps> = ({ SimCard }) => 
                 )}
               </div>
             </div>
+
+                 {/* ID Field */}
+            <div className="flex items-start flex-col">
+              <div className="w-1/4 text-sm font-medium text-gray-600 dark:text-white pt-2">Iccid</div>
+              <div className="flex-1">
+                {isEditing ? (
+                  <Form.Item
+                    name="id"
+                    rules={[{ required: true, message: 'Please enter SimCard name' }]}
+                    className="mb-0"
+                  >
+                    <Input placeholder="iccid" />
+                  </Form.Item>
+                ) : (
+                  <div className="text-base text-gray-900 dark:text-white">{SimCard.iccid}</div>
+                )}
+              </div>
+            </div>
+
             
             {/* Name Field */}
-            <div className="flex items-start">
-              <div className="w-1/4 text-sm font-medium text-gray-600 dark:text-white pt-2">Name</div>
+            <div className="flex items-start flex-col">
+              <div className="w-1/4 text-sm font-medium text-gray-600 dark:text-white pt-2">Assigned Subscriber</div>
               <div className="flex-1">
                 {isEditing ? (
                   <Form.Item
@@ -142,17 +161,35 @@ export const SimCardInfoCard: React.FC<SimCardInfoCardProps> = ({ SimCard }) => 
                     rules={[{ required: true, message: 'Please enter SimCard name' }]}
                     className="mb-0"
                   >
-                    <Input placeholder="Enter SimCard name" />
+                    <Input placeholder="Change subscriber name" />
                   </Form.Item>
                 ) : (
-                  <div className="text-base text-gray-900 dark:text-white">{SimCard.name}</div>
+                  <div className="text-base text-gray-900 dark:text-white">{SimCard.subscriberName}</div>
+                )}
+              </div>
+            </div>
+
+            {/* Date Assigned Field */}
+            <div className="flex items-start flex-col">
+              <div className="w-1/4 text-sm font-medium text-gray-600 dark:text-white pt-2">Date Assigned</div>
+              <div className="flex-1">
+                {isEditing ? (
+                  <Form.Item
+                    name="name"
+                    rules={[{ required: true, message: 'Please enter SimCard name' }]}
+                    className="mb-0"
+                  >
+                    <Input placeholder="Date Assigned" />
+                  </Form.Item>
+                ) : (
+                  <div className="text-base text-gray-900 dark:text-white">{SimCard.dateAssigned}</div>
                 )}
               </div>
             </div>
             
             {/* Country Field */}
-            <div className="flex items-start">
-              <div className="w-1/4 text-sm font-medium text-gray-600 dark:text-white pt-2">Country</div>
+            <div className="flex items-start flex-col">
+              <div className="w-1/4 text-sm font-medium text-gray-600 dark:text-white pt-2">eSIM Status</div>
               <div className="flex-1">
                 {isEditing ? (
                   <Form.Item
@@ -258,27 +295,7 @@ export const SimCardInfoCard: React.FC<SimCardInfoCardProps> = ({ SimCard }) => 
               </div>
             </div>
             
-            {/* Notes Field */}
-            <div className="flex items-start">
-              <div className="w-1/4 text-sm font-medium text-gray-600 dark:text-white pt-2">Notes</div>
-              <div className="flex-1">
-                {isEditing ? (
-                  <Form.Item
-                    name="notes"
-                    className="mb-0"
-                  >
-                    <TextArea 
-                      rows={4} 
-                      placeholder="Enter notes about the SimCard" 
-                    />
-                  </Form.Item>
-                ) : (
-                  <div className="text-gray-700 dark:text-white bg-gray-100 dark:bg-blue-950 p-3 rounded-md min-h-[100px]">
-                    {SimCard.notes || "No notes available..."}
-                  </div>
-                )}
-              </div>
-            </div>
+        
           </div>
         </Form>
       </Card>
