@@ -228,8 +228,8 @@ export const SimCardInfoCard: React.FC<SimCardInfoCardProps> = ({ SimCard }) => 
       >
         <Radio.Group onChange={onChangeRadio} value={radio}>
       {
-        1 && <Radio value={1} >
-         <span>Awaiting Network Connection</span>
+        1 && <Radio value={1} disabled>
+         <span className='text-black dark:text-white'>Awaiting Network Connection</span>
       </Radio>
       }
      {

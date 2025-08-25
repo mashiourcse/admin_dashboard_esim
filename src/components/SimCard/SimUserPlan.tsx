@@ -16,7 +16,10 @@ interface SimUserData {
   iccid: string;
   planName: string;
   status: string;
-  data_usage: string;
+  
+  data_size?: number;
+  data_usage: number;
+
   validity: string;
   created: string;
   expiration: string;
@@ -75,9 +78,11 @@ const SimUserTable: React.FC = () => {
     key: "1",
     id: "user001",
     iccid: "324324324324324",
-    planName: "Basic Plan",
+    planName: "1 GB / 10 days",
+    
     status: "Active",
-    data_usage: "2GB",
+    data_usage: 0.80,
+    data_size: 1,
     validity: "30 days",
     created: "2023-08-01",
     expiration: "2023-08-31"
@@ -88,7 +93,8 @@ const SimUserTable: React.FC = () => {
     iccid: "324324324324324",
     planName: "Premium Plan",
     status: "Active",
-    data_usage: "10GB",
+    data_usage: 5.80,
+    data_size: 3,
     validity: "60 days",
     created: "2023-07-01",
     expiration: "2023-08-30"
@@ -99,7 +105,8 @@ const SimUserTable: React.FC = () => {
     iccid: "324324324324324",
     planName: "Standard Plan",
     status: "Expired",
-    data_usage: "5GB",
+    data_usage: 8.80,
+    data_size: 4,
     validity: "45 days",
     created: "2023-06-15",
     expiration: "2023-08-01"
@@ -110,7 +117,8 @@ const SimUserTable: React.FC = () => {
     iccid: "324324324324324",
     planName: "Basic Plan",
     status: "Active",
-    data_usage: "3GB",
+    data_usage: 9.80,
+    data_size: 12,
     validity: "30 days",
     created: "2023-08-10",
     expiration: "2023-09-09"
@@ -121,7 +129,8 @@ const SimUserTable: React.FC = () => {
     iccid: "324324324324324",
     planName: "Unlimited Plan",
     status: "Active",
-    data_usage: "Unlimited",
+    data_usage: 1,
+    data_size: 1,
     validity: "90 days",
     created: "2023-06-01",
     expiration: "2023-08-30"
@@ -151,7 +160,7 @@ const columns: (SimUserColumn | ActionColumn)[] = [
     dataIndex: 'status',
     key: 'status',
     render: (status: string) => (
-        <Button className='rounded-full px-6 py-2'>{status}</Button>
+        <Button className='rounded-full px-6 py-2 w-[90px]'>{status}</Button>
 
     )
   },
@@ -165,8 +174,18 @@ const columns: (SimUserColumn | ActionColumn)[] = [
   },
   {
     title: 'Data Usage',
-    dataIndex: 'status',
-    key: 'status',
+    dataIndex: 'data_usage',
+    key: 'data_usage',
+
+    render: (usage: any, record: any)=> ( <div>
+      <span>{`${usage} GB used / ${record.data_size} GB`}</span>
+       <div className="mt-2 w-full bg-gray-200 rounded-full h-2.5">
+        <div
+          className="bg-blue-500 h-2.5 rounded-full"
+          style={{ width: `${(usage / 15) * 100}%` }}
+        />
+      </div>
+    </div>)
   },
   {
     title: 'Validity',

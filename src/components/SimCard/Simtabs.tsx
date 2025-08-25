@@ -28,10 +28,13 @@ const TabsLayout: React.FC = () => {
         <SimCardInfoCard SimCard={simCard}/>
       </TabPane>
       <TabPane tab="Activation" key="2">
-        <p>Activation</p>
+        <p className='mb-6'>Activation</p>
+       
+
       </TabPane>
       <TabPane tab="Data Usage Logs" key="3">
-        <p>Data Usage Logs</p>
+        <p className='mb-6'>Data Usage Logs</p>
+       
       </TabPane>
     </Tabs>
   );
