@@ -1,9 +1,7 @@
 "use client";
 import axiosInstance from "@/api/axios";
 import { formatDateInHumanReadable } from "@/lib/format-date-and-time";
-import {
-  InfoCircleOutlined
-} from "@ant-design/icons";
+import { InfoCircleOutlined } from "@ant-design/icons";
 import { Button, ConfigProvider, Space, Table, theme } from "antd";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
@@ -12,6 +10,7 @@ import DateRangeDropdown from "./DateRangeDropdown";
 // Interface for subscriber data
 interface SubscriberData {
   key: string;
+  id?: string;
   subscriber: string;
   email: string;
   noOfPlans: number;
@@ -74,8 +73,7 @@ const SubscribersTable: React.FC = () => {
     }
   }, [currentTheme, mounted]);
 
-
-   // Fetch subscriber data from API
+  // Fetch subscriber data from API
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -86,6 +84,7 @@ const SubscribersTable: React.FC = () => {
         const transformedData = response.data.data.map((item: any) => {
           return {
             _id: item._id,
+            id: item.custom_id,
             subscriber: item.first_name + " " + item.last_name,
             email: item.email,
             createdAt: formatDateInHumanReadable(item.createdAt),
@@ -102,7 +101,6 @@ const SubscribersTable: React.FC = () => {
 
     fetchData();
   }, []);
-
 
   // Sample data for subscribers
   // const data: SubscriberData[] = [
@@ -134,6 +132,12 @@ const SubscribersTable: React.FC = () => {
         // Calculate the global index based on page and pageSize
         return (currentPage - 1) * pageSize + index + 1;
       },
+    },
+    {
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
+      render: (id: string) => <span>{id ? id : "N/A"}</span>,
     },
     {
       title: "Subscriber",
