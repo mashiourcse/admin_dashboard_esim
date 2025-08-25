@@ -12,8 +12,8 @@ import TabsLayout from './Simtabs';
 // Interface for SimUser data
 interface SimUserData {
   key: string;
+  
   id: string;
-  iccid: string;
   planName: string;
   status: string;
   
@@ -77,12 +77,12 @@ const SimUserTable: React.FC = () => {
 {
     key: "1",
     id: "user001",
-    iccid: "324324324324324",
+   
     planName: "1 GB / 10 days",
     
     status: "Active",
     data_usage: 0.80,
-    data_size: 1,
+    data_size: 3,
     validity: "30 days",
     created: "2023-08-01",
     expiration: "2023-08-31"
@@ -90,10 +90,10 @@ const SimUserTable: React.FC = () => {
   {
     key: "2",
     id: "user002",
-    iccid: "324324324324324",
+    
     planName: "Premium Plan",
     status: "Active",
-    data_usage: 5.80,
+    data_usage: 2.80,
     data_size: 3,
     validity: "60 days",
     created: "2023-07-01",
@@ -102,10 +102,10 @@ const SimUserTable: React.FC = () => {
   {
     key: "3",
     id: "user003",
-    iccid: "324324324324324",
+
     planName: "Standard Plan",
     status: "Expired",
-    data_usage: 8.80,
+    data_usage: 3.80,
     data_size: 4,
     validity: "45 days",
     created: "2023-06-15",
@@ -114,7 +114,6 @@ const SimUserTable: React.FC = () => {
   {
     key: "4",
     id: "user004",
-    iccid: "324324324324324",
     planName: "Basic Plan",
     status: "Active",
     data_usage: 9.80,
@@ -126,8 +125,7 @@ const SimUserTable: React.FC = () => {
   {
     key: "5",
     id: "user005",
-    iccid: "324324324324324",
-    planName: "Unlimited Plan",
+    planName: "unlimited",
     status: "Active",
     data_usage: 1,
     data_size: 1,
@@ -165,9 +163,9 @@ const columns: (SimUserColumn | ActionColumn)[] = [
     )
   },
     {
-    title: 'ICCID',
-    dataIndex: 'id',  // Use `id` or another field if ICCID is present in your data
-    key: 'ICCID',
+    title: 'id',
+    dataIndex: 'id',  // Use `id` or another field if id is present in your data
+    key: 'id',
     render: (id: string) => (
       <span>{id ? <Link href={`/inventory/sim-dashboard/${id}`}>{id}</Link> : "N/A"}</span>
     ),
@@ -178,11 +176,14 @@ const columns: (SimUserColumn | ActionColumn)[] = [
     key: 'data_usage',
 
     render: (usage: any, record: any)=> ( <div>
-      <span>{`${usage} GB used / ${record.data_size} GB`}</span>
+      {
+        record.planName == "unlimited" ? "Unlimited Data" : <span>{`${usage} GB used / ${record.data_size} GB`}</span>
+      }
+      
        <div className="mt-2 w-full bg-gray-200 rounded-full h-2.5">
         <div
           className="bg-blue-500 h-2.5 rounded-full"
-          style={{ width: `${(usage / 15) * 100}%` }}
+          style={{ width: `${(usage / record.data_size) * 100}%` }}
         />
       </div>
     </div>)
