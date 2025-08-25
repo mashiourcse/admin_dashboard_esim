@@ -2,7 +2,8 @@
 import React from "react";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import SimDashboard from "@/components/SimCard";
-import Wrapper from "@/components/Tables/plans/wrapper";
+import { SimdetailsWrapper } from "./components/Wrapper"
+import SimUserTable from "@/components/SimCard/SimUserPlan";
 
 
 
@@ -12,8 +13,8 @@ const SimDashboardPage = () => {
         <div>
           <Breadcrumb pageName={`SIM Dashboard`} />
         
-            <SimDashboard />
-            <Wrapper/>
+           <SimdetailsWrapper />
+           
         </div>
     );
 };

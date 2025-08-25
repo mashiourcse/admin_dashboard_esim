@@ -5,6 +5,7 @@ import { EditOutlined, DeleteOutlined, InfoCircleOutlined } from '@ant-design/ic
 import { useTheme } from 'next-themes';
 import { theme } from 'antd';
 import DateRangeDropdown from './DateRangeDropdown';
+import Link from 'next/link';
 
 // Interface for Subscription data
 interface SubscriptionData {
@@ -206,6 +207,9 @@ const SubscriptionTable: React.FC = () => {
       title: 'ICCID',
       dataIndex: 'ICCID',
       key: 'ICCID',
+      render: (iccid: string) => (
+        <span>{iccid ? <Link href={`/inventory/sim-dashboard/${iccid}`}>{iccid}</Link> : "N/A"}</span>
+      ),
     },
     // {
     //   title: 'WSP',
