@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { Table, Button, Space, ConfigProvider } from 'antd';
+import { Table, Button, Space, ConfigProvider, Card } from 'antd';
 import { EditOutlined, DeleteOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import { useTheme } from 'next-themes';
 import { theme } from 'antd';
@@ -38,40 +38,11 @@ interface ActionColumn extends Omit<SimUserColumn, 'render'> {
 }
 
 const SimUserTable: React.FC = () => {
-  const { theme: currentTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  const [antTheme, setAntTheme] = useState<any>(null);
+  
   const [currentPage, setCurrentPage] = useState(1); // Track current page
   const [pageSize, setPageSize] = useState(5); // Track page size
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (mounted) {
-      if (currentTheme === 'dark') {
-        setAntTheme({
-          token: {
-            colorPrimary: '#1D1D1D',
-            colorBgBase: '#020D1A',
-            colorTextBase: '#FFFFFF',
-          },
-          algorithm: theme.darkAlgorithm,
-        });
-      } else {
-        setAntTheme({
-          token: {
-            colorPrimary: '#1890ff',
-            colorBgBase: '#FFFFFF',
-            colorTextBase: '#000000',
-          },
-          algorithm: theme.defaultAlgorithm,
-        });
-      }
-    }
-  }, [currentTheme, mounted]);
-
+  
   // Sample data for SimUsers
   const data: SimUserData[] = [
 {
@@ -218,18 +189,25 @@ const columns: (SimUserColumn | ActionColumn)[] = [
   },
 ];
 
-  if (!mounted) {
-    return null;
-  }
+ 
 
 
 
 
   return (
-    <ConfigProvider theme={antTheme}>
-       <TabsLayout />
-    
-      <Table
+   
+      
+    <>
+   <Card 
+   title={
+          <div className="flex justify-between items-center">
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Data Plans</h2>
+
+          </div>
+        }
+   
+   >
+       <Table
         columns={columns}
         dataSource={data}
         pagination={{
@@ -244,10 +222,11 @@ const columns: (SimUserColumn | ActionColumn)[] = [
           pageSizeOptions: ['5', '10', '20'],
         }}
       />
+   </Card>
       {/* <Button type="primary" style={{ marginBottom: 16, alignItems: 'center' }}>
         Add New SimUser
       </Button> */}
-    </ConfigProvider>
+    </>
   );
 };
 
