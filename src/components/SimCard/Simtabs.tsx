@@ -5,6 +5,7 @@ import { SimCardInfoCard } from './SimCardDetails';
 import SimUserTable from './SimUserPlan';
 import Activation  from './Activation';
 import { useTheme } from 'next-themes';
+import { DataUsage } from './DataUsage';
 
 const { TabPane } = Tabs;
 
@@ -76,7 +77,7 @@ useEffect(() => {
 
       </TabPane>
       <TabPane tab="Data Usage Logs" key="3">
-        <p className='mb-6'>Data Usage Logs</p>
+        <DataUsage />
        
       </TabPane>
     </Tabs>
