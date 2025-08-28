@@ -161,18 +161,11 @@ const PlansTable: React.FC<{ data: PlanData[] }> = ({ data }) => {
     //   dataIndex: "planType",
     //   key: "planType",
     // },
-    {
-      title: "Destination",
-      dataIndex: "destination",
-      key: "destination",
-      // render: (destinations: any[]) => (
-      //   <>
-      //     {/* {destinations.map((destination: string, index: number) => (
-      //       // <p key={`${destination}-${Math.random()}`}>{destination}</p>
-      //     ))} */}
-      //   </>
-      // ),
-    },
+    // {
+    //   title: "Destination",
+    //   dataIndex: "destination",
+    //   key: "destination",
+    // },
     {
       title: "Data/Validity",
       dataIndex: "dataOrValidity",
@@ -249,13 +242,13 @@ const PlansTable: React.FC<{ data: PlanData[] }> = ({ data }) => {
               <Form.Item label="Plan Type">
                 <Input name="planType" value={formData.planType} readOnly />
               </Form.Item>
-              <Form.Item label="Destination">
+              {/* <Form.Item label="Destination">
                 <Input
                   name="destination"
                   value={formData.destination}
                   readOnly
                 />
-              </Form.Item>
+              </Form.Item> */}
               <Form.Item label="Data/Validity">
                 <Input
                   name="dataOrValidity"

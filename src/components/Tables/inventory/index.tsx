@@ -91,11 +91,12 @@ const InventoryTable: React.FC = () => {
         const response = await axiosInstance.get("/inventories?results=10");
         // console.log(response.data.data);
 
-        const baseUrl =
-          window.location.protocol +
-          "//" +
-          window.location.hostname +
-          (window.location.port ? ":" + window.location.port : "");
+        // const baseUrl = 
+        //   window.location.protocol +
+        //   "//" +
+        //   window.location.hostname +
+        //   (window.location.port ? ":" + window.location.port : "");
+        const baseUrl = 'my.oneworldgsm.com';
 
         const transformedData = response.data.data.map((item: any) => {
           return {

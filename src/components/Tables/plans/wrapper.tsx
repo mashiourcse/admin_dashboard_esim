@@ -1,6 +1,6 @@
 "use client";
 import axiosInstance from "@/api/axios";
-import { getCountriesNameByCodes } from "@/utils/countries";
+import Loading from "@/components/ui/Loading";
 import { DownOutlined } from "@ant-design/icons";
 import {
   Button,
@@ -15,6 +15,7 @@ import {
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import PlansTable from "."; // Import your PlansTable component
+
 import Loading from "@/components/ui/Loading";
 import SimDashboard from "@/components/SimCard";
 
@@ -105,9 +106,9 @@ const Wrapper = () => {
           //   .filter(Boolean); // remove null/undefined if code not found
           // console.log(destinations);
 
-          const destinations = getCountriesNameByCodes(
-            plan.supported_countries,
-          );
+          // const destinations = getCountriesNameByCodes(
+          //   plan.supported_countries,
+          // );
           return {
             ...plan,
             dataOrValidity: `${(plan.data_usage_allowance / 1024 ** 3).toFixed(0)} GB, ${formatValidity(plan.time_allowance)}`,
@@ -119,7 +120,7 @@ const Wrapper = () => {
             ).toLocaleString(),
             createdDate: new Date(plan.created_date).toLocaleString(),
             modifiedDate: new Date(plan.modified_date).toLocaleString(),
-            destination: destinations,
+            // destination: destinations,
           };
         });
 
