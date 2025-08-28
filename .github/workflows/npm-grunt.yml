@@ -30,6 +30,7 @@ jobs:
       - name: Build and Push Docker image
         uses: docker/build-push-action@v4
         with:
-          context: .
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USER }}/nextjs-app:latest
+           context: .
+           file: ./docker/Dockerfile   # 👈 set correct path here
+           push: true
+           tags: ${{ secrets.DOCKERHUB_USER }}/nextjs-app:latest
