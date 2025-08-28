@@ -29,4 +29,8 @@ jobs:
       # Step 4: Build and push Docker image
       - name: Build and Push Docker image
         run: docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_TOKEN }}/admin_dashboard_esim:latest
+
+     # Step 4: Build and push Docker image
+      - name: Build and Push Docker image
+        run: docker push --file Dockerfile --tag ${{ secrets.DOCKERHUB_TOKEN }}/admin_dashboard_esim:latest
          
