@@ -16,7 +16,6 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import PlansTable from "."; // Import your PlansTable component
 
-import Loading from "@/components/ui/Loading";
 import SimDashboard from "@/components/SimCard";
 
 const Wrapper = () => {
