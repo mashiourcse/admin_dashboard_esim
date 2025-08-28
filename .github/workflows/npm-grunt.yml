@@ -28,9 +28,7 @@ jobs:
 
       # Step 4: Build and push Docker image
       - name: Build and Push Docker image
-        uses: docker/build-push-action@v4
-        with:
-           context: .
+        run: docker build . --file Dockerfile --tag ${{ secrets.DOCKERHUB_TOKEN }}/admin_dashboard_esim:latest
            file: ./docker/Dockerfile   # 👈 set correct path here
            push: true
            tags: ${{ secrets.DOCKERHUB_USER }}/admin_dashboard_esim:latest
