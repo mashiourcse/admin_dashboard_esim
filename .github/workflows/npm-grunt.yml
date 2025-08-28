@@ -33,4 +33,4 @@ jobs:
            context: .
            file: ./docker/Dockerfile   # 👈 set correct path here
            push: true
-           tags: ${{ secrets.DOCKERHUB_USER }}/nextjs-app:latest
+           tags: ${{ secrets.DOCKERHUB_USER }}/admin_dashboard_esim:latest
