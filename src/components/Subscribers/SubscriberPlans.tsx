@@ -182,7 +182,7 @@ const SubscriberPlans: React.FC<{ data: PlanData[] }> = ({ data }) => {
        <Card
        title={
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">eSIM</h2>
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">eSIMs</h2>
            
           </div>
         }

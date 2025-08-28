@@ -13,6 +13,7 @@ import {
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import HeaderCard from "./HeaderCard";
+import Link from "next/link";
 
 // Interface for inventory data
 interface InventoryData {
@@ -167,6 +168,9 @@ const InventoryTable: React.FC = () => {
       title: "ICCID",
       dataIndex: "iccid",
       key: "iccid",
+      render: (iccid: string) => (
+        <span>{iccid ? <Link href={`/inventory/sim-dashboard/${iccid}`}>{iccid}</Link> : "N/A"}</span>
+      ),
     },
     // {
     //   title: "Activation Code",
