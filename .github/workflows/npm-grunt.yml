@@ -35,4 +35,4 @@ jobs:
         run: docker push ${{ secrets.DOCKERHUB_USER }}/admin_dashboard_esim:latest
       - name: Build and Push Docker image
         run: docker push ${{ secrets.DOCKERHUB_TOKEN }}/admin_dashboard_esim:latest
-         
+
