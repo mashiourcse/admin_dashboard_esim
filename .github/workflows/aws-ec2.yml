@@ -1,0 +1,23 @@
+name: Publsih docker image
+
+on:
+  workflow_run:
+    # branches: ["master"]
+    workflows : ["CI/CD"]
+    types: [completed]
+
+jobs:
+  build:
+    runs-on:  self-hosted
+    steps:
+      - name: Stop the old container
+        run: docker stop admin_dashboard_esim || true
+      - name: Remove the old container
+        run: docker rm admin_dashboard_esim || true
+      - name: Remove the old image
+        run: docker rmi admin_dashboard_esim:latest || true
+      - name: Pull the image from docker DockerHub
+        run : docker pull ${{secrets.DOCKERHUB_USER}}/admin_dashboard_esim:latest
+      - name: Run the new container
+        run : docker compose up -d
+   
