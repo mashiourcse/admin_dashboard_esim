@@ -1,7 +1,7 @@
 version: '3'
 services:
   admin_dashboard_esim:
-    image: ${DOCKERHUB_USER}/admin_dashboard_esim:latest
+    image: bijontalukder/admin_dashboard_esim:latest
     container_name: admin_dashboard_esim
     restart: always
     ports:
@@ -9,8 +9,7 @@ services:
     network_mode: "host"
     environment:
       - NODE_ENV=production
-      # Next.js স্পেসিফিক ভেরিয়েবল (প্রয়োজন অনুযায়ী)
-      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
-      - DATABASE_URL=${DATABASE_URL}  # যদি ডাটাবেস ব্যবহার করেন
-      - SECRET_KEY=${SECRET_KEY}  # যদি থাকে
-    # যদি অ্যাপে ডাটাবেস/রেডিস থাকে তবে নেটওয়ার্ক কনফিগা
+    
+      # - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+      # - DATABASE_URL=${DATABASE_URL}  # যদি ডাটাবেস ব্যবহার করেন
+      # - SECRET_KEY=${SECRET_KEY} 
