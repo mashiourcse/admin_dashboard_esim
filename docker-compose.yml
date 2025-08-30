@@ -6,28 +6,11 @@ services:
     restart: always
     ports:
       - "3000:3000"
+    network_mode: "host"
     environment:
-      - ENV=production
-      - PORT=3000
-      - DEBUG=False
-      - ALLOWED_HOSTS=*
-      - DJANGO_SETTINGS_MODULE=config.settings.production
-      - DATABASE_URL=${DATABASE_URL}
-      - REDIS_URL=${REDIS_URL}
-      - SECRET_KEY=${SECRET_KEY}
-      - EMAIL_HOST=${EMAIL_HOST}
-      - EMAIL_PORT=${EMAIL_PORT}
-      - EMAIL_HOST_USER=${EMAIL_HOST_USER}
-      - EMAIL_HOST_PASSWORD=${EMAIL_HOST_PASSWORD}
-      - EMAIL_USE_TLS=True
-      - DEFAULT_FROM_EMAIL=${DEFAULT_FROM_EMAIL}
-      - CELERY_BROKER_URL=${CELERY_BROKER_URL}
-      - CELERY_RESULT_BACKEND=${CELERY_RESULT_BACKEND}
-      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-      - AWS_STORAGE_BUCKET_NAME=${AWS_STORAGE_BUCKET_NAME}
-      - AWS_S3_REGION_NAME=${AWS_S3_REGION_NAME}
-      - AWS_S3_CUSTOM_DOMAIN=${AWS_S3_CUSTOM_DOMAIN}
-    volumes:
-      - static_volume:/app/static
-      - media_volume:/app/media
+      - NODE_ENV=production
+      # Next.js স্পেসিফিক ভেরিয়েবল (প্রয়োজন অনুযায়ী)
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+      - DATABASE_URL=${DATABASE_URL}  # যদি ডাটাবেস ব্যবহার করেন
+      - SECRET_KEY=${SECRET_KEY}  # যদি থাকে
+    # যদি অ্যাপে ডাটাবেস/রেডিস থাকে তবে নেটওয়ার্ক কনফিগা
